@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B9A70BF1E5D1CD0008FACF4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9A70BE1E5D1CD0008FACF4 /* Default-568h@2x.png */; };
+		6B9A70C11E5D1DC7008FACF4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9A70C01E5D1DC7008FACF4 /* Default-568h@2x.png */; };
 		BAEEDDC01E4E3A7400E4FAEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */; };
 		BAEEDDC21E4E3A7400E4FAEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */; };
 		BAEEDDC71E4E3A7400E4FAEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEEDDC61E4E3A7400E4FAEE /* Assets.xcassets */; };
@@ -33,7 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6B9A70BE1E5D1CD0008FACF4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6B9A70C01E5D1DC7008FACF4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BAEEDDBC1E4E3A7400E4FAEE /* ios-base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-base.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 				BAEEDDD31E4E3A7400E4FAEE /* ios-baseTests */,
 				BAEEDDDE1E4E3A7400E4FAEE /* ios-baseUITests */,
 				BAEEDDBD1E4E3A7400E4FAEE /* Products */,
-				6B9A70BE1E5D1CD0008FACF4 /* Default-568h@2x.png */,
+				6B9A70C01E5D1DC7008FACF4 /* Default-568h@2x.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -229,8 +229,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B9A70BF1E5D1CD0008FACF4 /* Default-568h@2x.png in Resources */,
 				BAEEDDC71E4E3A7400E4FAEE /* Assets.xcassets in Resources */,
+				6B9A70C11E5D1DC7008FACF4 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
