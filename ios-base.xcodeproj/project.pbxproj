@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B9A70BF1E5D1CD0008FACF4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9A70BE1E5D1CD0008FACF4 /* Default-568h@2x.png */; };
 		BAEEDDC01E4E3A7400E4FAEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */; };
 		BAEEDDC21E4E3A7400E4FAEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */; };
-		BAEEDDC51E4E3A7400E4FAEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEEDDC31E4E3A7400E4FAEE /* Main.storyboard */; };
 		BAEEDDC71E4E3A7400E4FAEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEEDDC61E4E3A7400E4FAEE /* Assets.xcassets */; };
-		BAEEDDCA1E4E3A7400E4FAEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEEDDC81E4E3A7400E4FAEE /* LaunchScreen.storyboard */; };
 		BAEEDDD51E4E3A7400E4FAEE /* ios_baseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEEDDD41E4E3A7400E4FAEE /* ios_baseTests.swift */; };
 		BAEEDDE01E4E3A7400E4FAEE /* ios_baseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEEDDDF1E4E3A7400E4FAEE /* ios_baseUITests.swift */; };
 /* End PBXBuildFile section */
@@ -34,12 +33,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B9A70BE1E5D1CD0008FACF4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BAEEDDBC1E4E3A7400E4FAEE /* ios-base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-base.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BAEEDDC41E4E3A7400E4FAEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAEEDDC61E4E3A7400E4FAEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BAEEDDC91E4E3A7400E4FAEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAEEDDCB1E4E3A7400E4FAEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAEEDDD01E4E3A7400E4FAEE /* ios-baseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-baseTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEEDDD41E4E3A7400E4FAEE /* ios_baseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_baseTests.swift; sourceTree = "<group>"; };
@@ -81,6 +79,7 @@
 				BAEEDDD31E4E3A7400E4FAEE /* ios-baseTests */,
 				BAEEDDDE1E4E3A7400E4FAEE /* ios-baseUITests */,
 				BAEEDDBD1E4E3A7400E4FAEE /* Products */,
+				6B9A70BE1E5D1CD0008FACF4 /* Default-568h@2x.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +98,7 @@
 			children = (
 				BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */,
 				BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */,
-				BAEEDDC31E4E3A7400E4FAEE /* Main.storyboard */,
 				BAEEDDC61E4E3A7400E4FAEE /* Assets.xcassets */,
-				BAEEDDC81E4E3A7400E4FAEE /* LaunchScreen.storyboard */,
 				BAEEDDCB1E4E3A7400E4FAEE /* Info.plist */,
 			);
 			path = "ios-base";
@@ -232,9 +229,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAEEDDCA1E4E3A7400E4FAEE /* LaunchScreen.storyboard in Resources */,
+				6B9A70BF1E5D1CD0008FACF4 /* Default-568h@2x.png in Resources */,
 				BAEEDDC71E4E3A7400E4FAEE /* Assets.xcassets in Resources */,
-				BAEEDDC51E4E3A7400E4FAEE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,25 +290,6 @@
 			targetProxy = BAEEDDDC1E4E3A7400E4FAEE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		BAEEDDC31E4E3A7400E4FAEE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BAEEDDC41E4E3A7400E4FAEE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BAEEDDC81E4E3A7400E4FAEE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BAEEDDC91E4E3A7400E4FAEE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		BAEEDDE21E4E3A7400E4FAEE /* Debug */ = {
@@ -503,6 +480,7 @@
 				BAEEDDE61E4E3A7400E4FAEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAEEDDE71E4E3A7400E4FAEE /* Build configuration list for PBXNativeTarget "ios-baseTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +489,7 @@
 				BAEEDDE91E4E3A7400E4FAEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAEEDDEA1E4E3A7400E4FAEE /* Build configuration list for PBXNativeTarget "ios-baseUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +498,7 @@
 				BAEEDDEC1E4E3A7400E4FAEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
