@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B273ADF1E66402C00F4378C /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B273ADE1E66402C00F4378C /* PaddedTextField.swift */; };
 		6B9A70C11E5D1DC7008FACF4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9A70C01E5D1DC7008FACF4 /* Default-568h@2x.png */; };
 		6B9A70C31E5D5A39008FACF4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9A70C21E5D5A39008FACF4 /* RegisterViewController.swift */; };
 		BAEEDDC01E4E3A7400E4FAEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B273ADE1E66402C00F4378C /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		6B9A70C01E5D1DC7008FACF4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6B9A70C21E5D5A39008FACF4 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BAEEDDBC1E4E3A7400E4FAEE /* ios-base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-base.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +102,7 @@
 			children = (
 				BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */,
 				BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */,
+				6B273ADE1E66402C00F4378C /* PaddedTextField.swift */,
 				6B9A70C21E5D5A39008FACF4 /* RegisterViewController.swift */,
 				BAEEDDC61E4E3A7400E4FAEE /* Assets.xcassets */,
 				BAEEDDCB1E4E3A7400E4FAEE /* Info.plist */,
@@ -261,6 +264,7 @@
 				6B9A70C31E5D5A39008FACF4 /* RegisterViewController.swift in Sources */,
 				BAEEDDC21E4E3A7400E4FAEE /* ViewController.swift in Sources */,
 				BAEEDDC01E4E3A7400E4FAEE /* AppDelegate.swift in Sources */,
+				6B273ADF1E66402C00F4378C /* PaddedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,9 +2,9 @@ import UIKit
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
     
-    private let userTextField = UITextField()
-    private let passwordTextField = UITextField()
-    private let confirmPWTextField = UITextField()
+    private let userTextField = CustomTextField()
+    private let passwordTextField = CustomTextField()
+    private let confirmPWTextField = CustomTextField()
     private let registerButton = UIButton(type: .system)
     
     override func didReceiveMemoryWarning() {
@@ -22,21 +22,21 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         let mainColor =
-            UIColor.init(colorLiteralRed: 0, green: 130.0/256, blue: 203.0/256, alpha: 1.0)
+            UIColor(red: 0, green: 130.0/256, blue: 203.0/256, alpha: 1.0)
         self.view.backgroundColor = mainColor
 
         let width = self.view.frame.size.width
         let height = self.view.frame.size.height
 
         // Creating the username label
-        userTextField.frame = (frame: CGRect(x:0, y:0, width:240, height:30))
+        userTextField.frame = (frame: CGRect(x: 0, y: 0, width: 240, height: 30))
         userTextField.center = CGPoint(x: width/2, y: height*1/4)
         userTextField.backgroundColor = UIColor.white
         userTextField.layer.cornerRadius = 4
         userTextField.delegate = self
         userTextField.keyboardType = UIKeyboardType.default
         userTextField.returnKeyType = UIReturnKeyType.done
-        userTextField.placeholder = "  Email"
+        userTextField.placeholder = "Email"
         self.view.addSubview(userTextField)
 
         // Creating the password label
@@ -48,7 +48,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.keyboardType = UIKeyboardType.default
         passwordTextField.isSecureTextEntry = true
         passwordTextField.returnKeyType = UIReturnKeyType.done
-        passwordTextField.placeholder = "  Password"
+        passwordTextField.placeholder = "Password"
         self.view.addSubview(passwordTextField)
 
         // Creating the ConfirmPW label
@@ -60,7 +60,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         confirmPWTextField.keyboardType = UIKeyboardType.default
         confirmPWTextField.isSecureTextEntry = true
         confirmPWTextField.returnKeyType = UIReturnKeyType.done
-        confirmPWTextField.placeholder = "  Confirm Password"
+        confirmPWTextField.placeholder = "Confirm Password"
         self.view.addSubview(confirmPWTextField)
 
         // Creating the register button
@@ -72,6 +72,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         registerButton.setTitleColor(mainColor, for: .normal)
         registerButton.layer.cornerRadius = 10
         self.view.addSubview(registerButton)
+        
+        // Creating a keyboard dismiss
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+        self.view.isUserInteractionEnabled = true
     }
 
     func registerButtonTapped() {
@@ -86,23 +91,5 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         dismissKeyboard()
         return false
-    }
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        animateViewMoving(up: true, moveValue: 100)
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        animateViewMoving(up: false, moveValue: 100)
-    }
-
-    func animateViewMoving (up:Bool, moveValue :CGFloat){
-        let movementDuration: TimeInterval = 0.3
-        let movement: CGFloat = ( up ? -moveValue : moveValue)
-        UIView.beginAnimations( "animateView", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(movementDuration)
-        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
-        UIView.commitAnimations()
     }
 }

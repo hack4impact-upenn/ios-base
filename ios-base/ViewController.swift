@@ -2,8 +2,8 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    private let userTextField = UITextField()
-    private let passwordTextField = UITextField()
+    private let userTextField = CustomTextField()
+    private let passwordTextField = CustomTextField()
     private let loginButton = UIButton(type: .system)
     private let registerButton = UIButton(type: .system)
     private let logoImageView = UIImageView()
@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         let mainColor =
-            UIColor.init(colorLiteralRed: 0, green: 130.0/256, blue: 203.0/256, alpha: 1.0)
+            UIColor(red: 0, green: 130.0/256, blue: 203.0/256, alpha: 1.0)
         self.view.backgroundColor = mainColor
         
         let width = self.view.frame.size.width
@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         userTextField.delegate = self
         userTextField.keyboardType = UIKeyboardType.default
         userTextField.returnKeyType = UIReturnKeyType.done
-        userTextField.placeholder = "  Email"
+        userTextField.placeholder = "Email"
         self.view.addSubview(userTextField)
         
         // Creating the password label
@@ -55,7 +55,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.keyboardType = UIKeyboardType.default
         passwordTextField.isSecureTextEntry = true
         passwordTextField.returnKeyType = UIReturnKeyType.done
-        passwordTextField.placeholder = "  Password"
+        passwordTextField.placeholder = "Password"
         self.view.addSubview(passwordTextField)
         
         // Creating the login button
@@ -111,13 +111,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         animateViewMoving(up: false, moveValue: 100)
     }
 
-    func animateViewMoving (up:Bool, moveValue :CGFloat){
-        let movementDuration: TimeInterval = 0.3
-        let movement: CGFloat = ( up ? -moveValue : moveValue)
-        UIView.beginAnimations( "animateView", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(movementDuration)
-        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
-        UIView.commitAnimations()
+    func animateViewMoving (up: Bool, moveValue: CGFloat){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.frame = self.view.frame.offsetBy(dx: 0, dy: up ? -moveValue : moveValue)
+        })
     }
 }
