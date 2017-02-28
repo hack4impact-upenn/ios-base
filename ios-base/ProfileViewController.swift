@@ -9,10 +9,10 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    let nameLabel = UILabel()
-    let emailLabel = UILabel()
-    let signOutButton = UIButton(type: UIButtonType.roundedRect)
-    let profileImageView = UIImageView()
+    private let nameLabel = UILabel()
+    private let emailLabel = UILabel()
+    private let signOutButton = UIButton(type: UIButtonType.roundedRect)
+    private let profileImageView = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,36 +23,36 @@ class ProfileViewController: UIViewController {
         }
         
         // Setup name
-        nameLabel.text = "Kyle Rosenbluth"
-        nameLabel.sizeToFit()
-        nameLabel.textColor = UIColor.darkGray
-        nameLabel.center = self.view.center
-        nameLabel.center.y += 40
+        self.nameLabel.text = "Kyle Rosenbluth"
+        self.nameLabel.sizeToFit()
+        self.nameLabel.textColor = UIColor.darkGray
+        self.nameLabel.center = self.view.center
+        self.nameLabel.center.y += 40
         self.view.addSubview(nameLabel)
         
         // Setup email
-        emailLabel.text = "kyle.rosenbluth@gmail.com"
-        emailLabel.sizeToFit()
-        emailLabel.textColor = UIColor.darkGray
-        emailLabel.center = centerForBelow(nameLabel)
+        self.emailLabel.text = "kyle.rosenbluth@gmail.com"
+        self.emailLabel.sizeToFit()
+        self.emailLabel.textColor = UIColor.darkGray
+        self.emailLabel.center = centerForBelow(nameLabel)
         self.view.addSubview(emailLabel)
         
         // Setup signout
-        signOutButton.setTitle("Sign Out", for: .normal)
-        signOutButton.sizeToFit()
-        signOutButton.center = centerForBelow(emailLabel)
+        self.signOutButton.setTitle("Sign Out", for: .normal)
+        self.signOutButton.sizeToFit()
+        self.signOutButton.center = centerForBelow(emailLabel)
         self.view.addSubview(signOutButton)
         
         // Setup profile picture
         let prof_pic = "https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/15822924_10210243463137294_4969821814341284468_n.jpg?oh=720a875e07bab5bd4227c91e57728193&oe=5927BD68"
         if let url = URL(string: prof_pic), let d = try? Data(contentsOf: url) {
             let img = UIImage(data: d)
-            profileImageView.image = img
-            profileImageView.frame.size = CGSize(width: 150, height: 150)
-            profileImageView.center = self.view.center
-            profileImageView.frame.origin.y = 100
-            profileImageView.layer.cornerRadius = 12
-            profileImageView.layer.masksToBounds = true
+            self.profileImageView.image = img
+            self.profileImageView.frame.size = CGSize(width: 150, height: 150)
+            self.profileImageView.center = self.view.center
+            self.profileImageView.frame.origin.y = 100
+            self.profileImageView.layer.cornerRadius = 12
+            self.profileImageView.layer.masksToBounds = true
             self.view.addSubview(profileImageView)
             
         }
