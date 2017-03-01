@@ -2,9 +2,6 @@
 //  ProfileViewController.swift
 //  ios-base
 //
-//  Created by Kyle Rosenbluth on 2/28/17.
-//  Copyright © 2017 Kyle Rosenbluth. All rights reserved.
-//
 
 import UIKit
 
@@ -19,7 +16,7 @@ class ProfileViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         
         func centerForBelow(_ v : UIView) -> CGPoint {
-            return CGPoint(x: v.center.x, y: v.center.y + v.frame.size.height + 40)
+            return CGPoint(x: v.center.x, y: v.center.y + v.frame.size.height + Spacing.ProfileText)
         }
         
         // Setup name
@@ -27,7 +24,7 @@ class ProfileViewController: UIViewController {
         self.nameLabel.sizeToFit()
         self.nameLabel.textColor = UIColor.darkGray
         self.nameLabel.center = self.view.center
-        self.nameLabel.center.y += 40
+        self.nameLabel.center.y += Spacing.ProfileText
         self.view.addSubview(nameLabel)
         
         // Setup email
@@ -45,6 +42,7 @@ class ProfileViewController: UIViewController {
         
         // Setup profile picture
         let prof_pic = "https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/15822924_10210243463137294_4969821814341284468_n.jpg?oh=720a875e07bab5bd4227c91e57728193&oe=5927BD68"
+        
         if let url = URL(string: prof_pic), let d = try? Data(contentsOf: url) {
             let img = UIImage(data: d)
             self.profileImageView.image = img
@@ -54,7 +52,6 @@ class ProfileViewController: UIViewController {
             self.profileImageView.layer.cornerRadius = 12
             self.profileImageView.layer.masksToBounds = true
             self.view.addSubview(profileImageView)
-            
         }
         
         // Do any additional setup after loading the view.
@@ -64,16 +61,4 @@ class ProfileViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
