@@ -12,6 +12,8 @@
 		A1C2B6291E667FC500F85EE6 /* NewsFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C2B6271E667FC500F85EE6 /* NewsFeedViewController.xib */; };
 		A1C2B62C1E66802A00F85EE6 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */; };
 		A1C2B62D1E66802A00F85EE6 /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C2B62B1E66802A00F85EE6 /* NewsFeedTableViewCell.xib */; };
+		BA44D39C1E662B7F006D99A6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44D39B1E662B7F006D99A6 /* ProfileViewController.swift */; };
+		BA44D39E1E664CE3006D99A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44D39D1E664CE3006D99A6 /* Constants.swift */; };
 		BAEEDDC01E4E3A7400E4FAEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */; };
 		BAEEDDC21E4E3A7400E4FAEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */; };
 		BAEEDDC71E4E3A7400E4FAEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEEDDC61E4E3A7400E4FAEE /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		A1C2B6271E667FC500F85EE6 /* NewsFeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedViewController.xib; sourceTree = "<group>"; };
 		A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		A1C2B62B1E66802A00F85EE6 /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
+		BA44D39B1E662B7F006D99A6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BA44D39D1E664CE3006D99A6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAEEDDBC1E4E3A7400E4FAEE /* ios-base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-base.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */,
 				A1C2B62B1E66802A00F85EE6 /* NewsFeedTableViewCell.xib */,
 				BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */,
+				BA44D39B1E662B7F006D99A6 /* ProfileViewController.swift */,
+				BA44D39D1E664CE3006D99A6 /* Constants.swift */,
 				BAEEDDC61E4E3A7400E4FAEE /* Assets.xcassets */,
 				BAEEDDCB1E4E3A7400E4FAEE /* Info.plist */,
 			);
@@ -206,6 +212,7 @@
 					};
 					BAEEDDCF1E4E3A7400E4FAEE = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 67454K9MGU;
 						ProvisioningStyle = Automatic;
 						TestTargetID = BAEEDDBB1E4E3A7400E4FAEE;
 					};
@@ -273,6 +280,8 @@
 				BAEEDDC01E4E3A7400E4FAEE /* AppDelegate.swift in Sources */,
 				A1C2B62C1E66802A00F85EE6 /* NewsFeedTableViewCell.swift in Sources */,
 				A1C2B6281E667FC500F85EE6 /* NewsFeedViewController.swift in Sources */,
+				BA44D39C1E662B7F006D99A6 /* ProfileViewController.swift in Sources */,
+				BA44D39E1E664CE3006D99A6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "ios-base/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hack4Impact.ios-base";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -416,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "ios-base/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hack4Impact.ios-base";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,7 +439,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 67454K9MGU;
 				INFOPLIST_FILE = "ios-baseTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hack4Impact.ios-baseTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -442,7 +455,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 67454K9MGU;
 				INFOPLIST_FILE = "ios-baseTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hack4Impact.ios-baseTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -456,6 +471,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "ios-baseUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hack4Impact.ios-baseUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -469,6 +485,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "ios-baseUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hack4Impact.ios-baseUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
