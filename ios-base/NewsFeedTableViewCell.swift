@@ -10,11 +10,11 @@ import UIKit
 
 class NewsFeedTableViewCell: UITableViewCell {
 
-    @IBOutlet var postNameLabel: UILabel!
-    @IBOutlet var viewProfileButton: UIButton!
-    @IBOutlet var usernameLabel: UILabel!
-    @IBOutlet var postContentLabel: UILabel!
-    @IBOutlet var timestampLabel: UILabel!
+    @IBOutlet var postNameLabel: UILabel?
+    @IBOutlet var viewProfileButton: UIButton?
+    @IBOutlet var usernameLabel: UILabel?
+    @IBOutlet var postContentLabel: UILabel?
+    @IBOutlet var timestampLabel: UILabel?
     
     var postName = "Post Title"
     var username = "koushan"
@@ -25,10 +25,10 @@ class NewsFeedTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        postNameLabel.text = postName
-        usernameLabel.text = username
-        postContentLabel.text = postContent
-        timestampLabel.text = timestamp
+        postNameLabel?.text = postName
+        usernameLabel?.text = username
+        postContentLabel?.text = postContent
+        timestampLabel?.text = timestamp
         
     }
 

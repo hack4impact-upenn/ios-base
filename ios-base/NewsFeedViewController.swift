@@ -8,13 +8,13 @@ import UIKit
 class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableView: UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.register(UINib.init(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "newsFeedCell")
+        self.tableView?.delegate = self
+        self.tableView?.dataSource = self
+        self.tableView?.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "newsFeedCell")
         // Do any additional setup after loading the view.
     }
     
@@ -28,8 +28,11 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newsFeedCell") as? NewsFeedTableViewCell
-        return cell!
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "newsFeedCell") as? NewsFeedTableViewCell {
+            return cell
+        }
+        return NewsFeedTableViewCell(style: .default, reuseIdentifier: "newsFeedCell")
+        
         
     }
     
