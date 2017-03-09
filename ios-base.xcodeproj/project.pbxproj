@@ -80,6 +80,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BD9BF021E71E64900EF841A /* Login Views */ = {
+			isa = PBXGroup;
+			children = (
+				BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */,
+				6BD9BF001E71E4FE00EF841A /* RegisterViewController.swift */,
+			);
+			name = "Login Views";
+			sourceTree = "<group>";
+		};
+		6BD9BF031E71E65D00EF841A /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BA44D39D1E664CE3006D99A6 /* Constants.swift */,
+				6B273ADE1E66402C00F4378C /* PaddedTextField.swift */,
+			);
+			name = "Helper Classes";
+			sourceTree = "<group>";
+		};
 		BAEEDDB31E4E3A7400E4FAEE = {
 			isa = PBXGroup;
 			children = (
@@ -105,11 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */,
-				BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */,
 				BA44D39B1E662B7F006D99A6 /* ProfileViewController.swift */,
-				6BD9BF001E71E4FE00EF841A /* RegisterViewController.swift */,
-				BA44D39D1E664CE3006D99A6 /* Constants.swift */,
-				6B273ADE1E66402C00F4378C /* PaddedTextField.swift */,
+				6BD9BF021E71E64900EF841A /* Login Views */,
+				6BD9BF031E71E65D00EF841A /* Helper Classes */,
 				BAEEDDC61E4E3A7400E4FAEE /* Assets.xcassets */,
 				BAEEDDCB1E4E3A7400E4FAEE /* Info.plist */,
 			);

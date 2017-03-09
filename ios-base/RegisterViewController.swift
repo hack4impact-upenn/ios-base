@@ -1,3 +1,8 @@
+//
+//  RegisterViewController.swift
+//  ios-base
+//
+
 import UIKit
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
@@ -21,18 +26,16 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let mainColor =
-            UIColor(red: 0, green: 130.0/256, blue: 203.0/256, alpha: 1.0)
-        self.view.backgroundColor = mainColor
-
         let width = self.view.frame.size.width
         let height = self.view.frame.size.height
+        
+        self.view.backgroundColor = Color.MainColor
 
         // Creating the username label
         userTextField.frame = (frame: CGRect(x: 0, y: 0, width: 240, height: 30))
         userTextField.center = CGPoint(x: width/2, y: height*1/4)
         userTextField.backgroundColor = UIColor.white
-        userTextField.layer.cornerRadius = 4
+        userTextField.layer.cornerRadius = Spacing.CornerRadius
         userTextField.delegate = self
         userTextField.keyboardType = UIKeyboardType.default
         userTextField.returnKeyType = UIReturnKeyType.done
@@ -43,7 +46,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.frame = (frame: CGRect(x:0, y:0, width:240, height:30))
         passwordTextField.center = CGPoint(x: width/2, y: height*1/3)
         passwordTextField.backgroundColor = UIColor.white
-        passwordTextField.layer.cornerRadius = 4
+        passwordTextField.layer.cornerRadius = Spacing.CornerRadius
         passwordTextField.delegate = self
         passwordTextField.keyboardType = UIKeyboardType.default
         passwordTextField.isSecureTextEntry = true
@@ -55,7 +58,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         confirmPWTextField.frame = (frame: CGRect(x:0, y:0, width:240, height:30))
         confirmPWTextField.center = CGPoint(x: width/2, y: height*5/12)
         confirmPWTextField.backgroundColor = UIColor.white
-        confirmPWTextField.layer.cornerRadius = 4
+        confirmPWTextField.layer.cornerRadius = Spacing.CornerRadius
         confirmPWTextField.delegate = self
         confirmPWTextField.keyboardType = UIKeyboardType.default
         confirmPWTextField.isSecureTextEntry = true
@@ -69,8 +72,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         registerButton.center = CGPoint(x: width/2, y: height*13/24)
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         registerButton.backgroundColor = UIColor.white
-        registerButton.setTitleColor(mainColor, for: .normal)
-        registerButton.layer.cornerRadius = 10
+        registerButton.setTitleColor(Color.MainColor, for: .normal)
+        registerButton.layer.cornerRadius = Spacing.CornerRadius
         self.view.addSubview(registerButton)
         
         // Creating a keyboard dismiss
