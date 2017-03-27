@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		6B273ADF1E66402C00F4378C /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B273ADE1E66402C00F4378C /* PaddedTextField.swift */; };
 		6B9A70C11E5D1DC7008FACF4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9A70C01E5D1DC7008FACF4 /* Default-568h@2x.png */; };
+		A1C2B6281E667FC500F85EE6 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C2B6261E667FC500F85EE6 /* NewsFeedViewController.swift */; };
+		A1C2B6291E667FC500F85EE6 /* NewsFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C2B6271E667FC500F85EE6 /* NewsFeedViewController.xib */; };
+		A1C2B62C1E66802A00F85EE6 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */; };
+		A1C2B62D1E66802A00F85EE6 /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C2B62B1E66802A00F85EE6 /* NewsFeedTableViewCell.xib */; };
 		6BD9BF011E71E4FE00EF841A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9BF001E71E4FE00EF841A /* RegisterViewController.swift */; };
 		BA44D39C1E662B7F006D99A6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44D39B1E662B7F006D99A6 /* ProfileViewController.swift */; };
 		BA44D39E1E664CE3006D99A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44D39D1E664CE3006D99A6 /* Constants.swift */; };
@@ -39,6 +43,10 @@
 /* Begin PBXFileReference section */
 		6B273ADE1E66402C00F4378C /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		6B9A70C01E5D1DC7008FACF4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A1C2B6261E667FC500F85EE6 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
+		A1C2B6271E667FC500F85EE6 /* NewsFeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedViewController.xib; sourceTree = "<group>"; };
+		A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
+		A1C2B62B1E66802A00F85EE6 /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
 		6BD9BF001E71E4FE00EF841A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BA44D39B1E662B7F006D99A6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BA44D39D1E664CE3006D99A6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -123,6 +131,11 @@
 			isa = PBXGroup;
 			children = (
 				BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */,
+				A1C2B6261E667FC500F85EE6 /* NewsFeedViewController.swift */,
+				A1C2B6271E667FC500F85EE6 /* NewsFeedViewController.xib */,
+				A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */,
+				A1C2B62B1E66802A00F85EE6 /* NewsFeedTableViewCell.xib */,
+				BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */,
 				BA44D39B1E662B7F006D99A6 /* ProfileViewController.swift */,
 				6BD9BF021E71E64900EF841A /* Login Views */,
 				6BD9BF031E71E65D00EF841A /* Helper Classes */,
@@ -222,6 +235,7 @@
 					};
 					BAEEDDCF1E4E3A7400E4FAEE = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 67454K9MGU;
 						ProvisioningStyle = Automatic;
 						TestTargetID = BAEEDDBB1E4E3A7400E4FAEE;
 					};
@@ -258,6 +272,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAEEDDC71E4E3A7400E4FAEE /* Assets.xcassets in Resources */,
+				A1C2B6291E667FC500F85EE6 /* NewsFeedViewController.xib in Resources */,
+				A1C2B62D1E66802A00F85EE6 /* NewsFeedTableViewCell.xib in Resources */,
 				6B9A70C11E5D1DC7008FACF4 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,9 +299,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA44D39C1E662B7F006D99A6 /* ProfileViewController.swift in Sources */,
 				BAEEDDC21E4E3A7400E4FAEE /* ViewController.swift in Sources */,
 				BAEEDDC01E4E3A7400E4FAEE /* AppDelegate.swift in Sources */,
+				A1C2B62C1E66802A00F85EE6 /* NewsFeedTableViewCell.swift in Sources */,
+				A1C2B6281E667FC500F85EE6 /* NewsFeedViewController.swift in Sources */,
+				BA44D39C1E662B7F006D99A6 /* ProfileViewController.swift in Sources */,
 				6BD9BF011E71E4FE00EF841A /* RegisterViewController.swift in Sources */,
 				BA44D39E1E664CE3006D99A6 /* Constants.swift in Sources */,
 				6B273ADF1E66402C00F4378C /* PaddedTextField.swift in Sources */,
@@ -446,7 +464,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 67454K9MGU;
 				INFOPLIST_FILE = "ios-baseTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hack4Impact.ios-baseTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -460,7 +480,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 67454K9MGU;
 				INFOPLIST_FILE = "ios-baseTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hack4Impact.ios-baseTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -474,6 +496,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "ios-baseUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hack4Impact.ios-baseUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -487,6 +510,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "ios-baseUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hack4Impact.ios-baseUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
