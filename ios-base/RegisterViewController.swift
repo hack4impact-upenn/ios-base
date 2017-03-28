@@ -85,6 +85,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     func registerButtonTapped() {
         // Create a new user.
         // Validate User Inputs
+        let newsFeedVC = NewsFeedViewController()
+        self.navigationController?.pushViewController(newsFeedVC, animated: true)
     }
 
     func dismissKeyboard() {

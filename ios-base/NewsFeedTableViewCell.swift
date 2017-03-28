@@ -2,9 +2,6 @@
 //  NewsFeedTableViewCell.swift
 //  ios-base
 //
-//  Created by Kasra Koushan on 2017-02-28.
-//  Copyright © 2017 Kyle Rosenbluth. All rights reserved.
-//
 
 import UIKit
 
@@ -23,13 +20,11 @@ class NewsFeedTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
+
         postNameLabel?.text = postName
         usernameLabel?.text = username
         postContentLabel?.text = postContent
         timestampLabel?.text = timestamp
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,6 +35,7 @@ class NewsFeedTableViewCell: UITableViewCell {
     
     @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
         print("view profile button pressed")
+        
     }
     
 }
