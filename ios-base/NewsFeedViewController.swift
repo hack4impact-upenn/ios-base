@@ -7,7 +7,13 @@ import UIKit
 
 class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.setHidesBackButton(true, animated:true);
+        self.title = "News Feed"
+    }
+
     @IBOutlet var tableView: UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,13 +21,32 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
         self.tableView?.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "newsFeedCell")
-        // Do any additional setup after loading the view.
+        
+        let rightButtonItem = UIBarButtonItem.init(
+            title: "New Post",
+            style: .done,
+            target: self,
+            action: #selector(NewsFeedViewController.addNewPost)
+        )
+        
+        self.navigationItem.rightBarButtonItem = rightButtonItem
+        
+        let leftButtonItem = UIBarButtonItem.init(
+            title: "Sign Out",
+            style: .done,
+            target: self,
+            action: #selector(NewsFeedViewController.signout)
+        )
+        
+        self.navigationItem.leftBarButtonItem = leftButtonItem
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: Table View Delegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
@@ -32,8 +57,6 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
             return cell
         }
         return NewsFeedTableViewCell(style: .default, reuseIdentifier: "newsFeedCell")
-        
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -42,6 +65,15 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
+    }
+    
+    func addNewPost() {
+        let newPostVC = NewPostViewController()
+        self.navigationController?.pushViewController(newPostVC, animated: true)
+    }
+    
+    func signout() {
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
 }

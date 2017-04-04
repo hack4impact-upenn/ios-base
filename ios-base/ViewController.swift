@@ -94,7 +94,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     func loginButtonTapped() {
         // validate user input against database
-        
+        let newsFeedVC = NewsFeedViewController()
+        self.navigationController?.pushViewController(newsFeedVC, animated: true)
     }
 
     func dismissKeyboard() {
