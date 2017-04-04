@@ -29,6 +29,10 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "newsFeedCell") as? NewsFeedTableViewCell {
+            // create a sample news feed post
+            let post = Post(postName: "Hello!", username: "kasra", content: "Sup fam! This is my post yo", timeStamp: "4 April 2017")
+            cell.post = post
+            cell.updateInfo()
             return cell
         }
         return NewsFeedTableViewCell(style: .default, reuseIdentifier: "newsFeedCell")
