@@ -12,12 +12,12 @@
 		4AA75E113E66A7F65558B6CC /* Pods_ios_baseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD1FEEE82A8D9432D5061C1 /* Pods_ios_baseTests.framework */; };
 		6B273ADF1E66402C00F4378C /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B273ADE1E66402C00F4378C /* PaddedTextField.swift */; };
 		6B9A70C11E5D1DC7008FACF4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9A70C01E5D1DC7008FACF4 /* Default-568h@2x.png */; };
-		6BD9BF011E71E4FE00EF841A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9BF001E71E4FE00EF841A /* RegisterViewController.swift */; };
 		A1C2B6281E667FC500F85EE6 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C2B6261E667FC500F85EE6 /* NewsFeedViewController.swift */; };
 		A1C2B6291E667FC500F85EE6 /* NewsFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C2B6271E667FC500F85EE6 /* NewsFeedViewController.xib */; };
 		A1C2B62C1E66802A00F85EE6 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */; };
 		A1C2B62D1E66802A00F85EE6 /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C2B62B1E66802A00F85EE6 /* NewsFeedTableViewCell.xib */; };
 		8A20D0732550E12D5EFBED20 /* Pods_ios_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EFF01514C01B909928AFC9 /* Pods_ios_base.framework */; };
+		6BD9BF011E71E4FE00EF841A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9BF001E71E4FE00EF841A /* RegisterViewController.swift */; };
 		BA44D39C1E662B7F006D99A6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44D39B1E662B7F006D99A6 /* ProfileViewController.swift */; };
 		BA44D39E1E664CE3006D99A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44D39D1E664CE3006D99A6 /* Constants.swift */; };
 		BAEEDDC01E4E3A7400E4FAEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */; };
@@ -45,19 +45,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6B24F4641E8B0D8900085DA6 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		6B273ADE1E66402C00F4378C /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		6B9A70C01E5D1DC7008FACF4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		6BD9BF001E71E4FE00EF841A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A1C2B6261E667FC500F85EE6 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
 		A1C2B6271E667FC500F85EE6 /* NewsFeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedViewController.xib; sourceTree = "<group>"; };
 		A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		A1C2B62B1E66802A00F85EE6 /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
-  	78A26FDC252DA234F3E83DA9 /* Pods_ios_baseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_baseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+  		78A26FDC252DA234F3E83DA9 /* Pods_ios_baseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_baseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EFF01514C01B909928AFC9 /* Pods_ios_base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE624FFBA0B41AE80FC403D /* Pods-ios-baseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-baseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-baseTests/Pods-ios-baseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D7F12EFC41C359ABECBADAB /* Pods-ios-base.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-base.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-base/Pods-ios-base.debug.xcconfig"; sourceTree = "<group>"; };
 		B792DA3CEE2246FC006A75DE /* Pods-ios-baseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-baseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-baseTests/Pods-ios-baseTests.release.xcconfig"; sourceTree = "<group>"; };
+		6BD9BF001E71E4FE00EF841A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BA44D39B1E662B7F006D99A6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BA44D39D1E664CE3006D99A6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAEEDDBC1E4E3A7400E4FAEE /* ios-base.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-base.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,9 +166,12 @@
 			isa = PBXGroup;
 			children = (
 				BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */,
+				A1C2B6261E667FC500F85EE6 /* NewsFeedViewController.swift */,
+				A1C2B6271E667FC500F85EE6 /* NewsFeedViewController.xib */,
+				A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */,
+				A1C2B62B1E66802A00F85EE6 /* NewsFeedTableViewCell.xib */,
+				BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */,
 				BA44D39B1E662B7F006D99A6 /* ProfileViewController.swift */,
-				6B24F4641E8B0D8900085DA6 /* NewPostViewController.swift */,
-				6B24F4631E8B0BC500085DA6 /* News Feed */,
 				6BD9BF021E71E64900EF841A /* Login Views */,
 				6BD9BF031E71E65D00EF841A /* Helper Classes */,
 				BAEEDDC61E4E3A7400E4FAEE /* Assets.xcassets */,
@@ -497,7 +499,6 @@
 				A1C2B62C1E66802A00F85EE6 /* NewsFeedTableViewCell.swift in Sources */,
 				A1C2B6281E667FC500F85EE6 /* NewsFeedViewController.swift in Sources */,
 				BA44D39C1E662B7F006D99A6 /* ProfileViewController.swift in Sources */,
-				6B24F4651E8B0D8900085DA6 /* NewPostViewController.swift in Sources */,
 				6BD9BF011E71E4FE00EF841A /* RegisterViewController.swift in Sources */,
 				BA44D39E1E664CE3006D99A6 /* Constants.swift in Sources */,
 				6B273ADF1E66402C00F4378C /* PaddedTextField.swift in Sources */,
