@@ -9,13 +9,38 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     @IBOutlet var tableView: UITableView?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.setHidesBackButton(true, animated:true);
+        self.title = "News Feed"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
         self.tableView?.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "newsFeedCell")
-        // Do any additional setup after loading the view.
+        
+        let rightButtonItem = UIBarButtonItem.init(
+            title: "New Post",
+            style: .done,
+            target: self,
+            action: #selector(NewsFeedViewController.addNewPost)
+        )
+        
+        self.navigationItem.rightBarButtonItem = rightButtonItem
+        
+        let leftButtonItem = UIBarButtonItem.init(
+            title: "Sign Out",
+            style: .done,
+            target: self,
+            action: #selector(NewsFeedViewController.signout)
+        )
+        
+        self.navigationItem.leftBarButtonItem = leftButtonItem
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,6 +67,15 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
+    }
+    
+    func addNewPost() {
+        let newPostVC = NewPostViewController()
+        self.navigationController?.pushViewController(newPostVC, animated: true)
+    }
+    
+    func signout() {
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
 }
