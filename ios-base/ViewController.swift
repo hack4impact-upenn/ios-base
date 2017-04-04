@@ -32,14 +32,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.view.backgroundColor = Color.MainColor
 
         // Creating the imageView
-        logoImageView.frame = (frame: CGRect(x:0, y:0, width:width/2, height:width/2))
+        logoImageView.frame = CGRect(x:0, y:0, width:width/2, height:width/2)
         logoImageView.center = CGPoint(x: width/2, y:height*1/3)
         logoImageView.image = #imageLiteral(resourceName: "h4i_square_white")
         self.view.addSubview(logoImageView)
         
         
         // Creating the username label
-        userTextField.frame = (frame: CGRect(x:0, y:0, width:240, height:30))
+        userTextField.frame = CGRect(x:0, y:0, width:240, height:30)
         userTextField.center = CGPoint(x: width/2, y: height*7/12)
         userTextField.backgroundColor = UIColor.white
         userTextField.layer.cornerRadius = Spacing.CornerRadius
@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(userTextField)
         
         // Creating the password label
-        passwordTextField.frame = (frame: CGRect(x:0, y:0, width:240, height:30))
+        passwordTextField.frame = CGRect(x:0, y:0, width:240, height:30)
         passwordTextField.center = CGPoint(x: width/2, y: height*2/3)
         passwordTextField.backgroundColor = UIColor.white
         passwordTextField.layer.cornerRadius = Spacing.CornerRadius
@@ -63,7 +63,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // Creating the login button
         loginButton.setTitle("Login", for: .normal)
-        loginButton.frame = (frame: CGRect(x: 0, y: 0, width: 240, height: 30))
+        loginButton.frame = CGRect(x: 0, y: 0, width: 240, height: 30)
         loginButton.center = CGPoint(x: width/2, y: height*3/4)
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         loginButton.backgroundColor = UIColor.white
@@ -73,7 +73,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // Creating the register button
         registerButton.setTitle("Sign Up", for: .normal)
-        registerButton.frame = (frame: CGRect(x: 0, y: 0, width: 240, height: 30))
+        registerButton.frame = CGRect(x: 0, y: 0, width: 240, height: 30)
         registerButton.center = CGPoint(x: width/2, y: height*11/12)
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         registerButton.backgroundColor = UIColor.white

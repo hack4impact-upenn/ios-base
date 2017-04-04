@@ -113,10 +113,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6B9D3D5A1E946448002359C2 /* NewsFeed */ = {
+			isa = PBXGroup;
+			children = (
+				A1C2B6261E667FC500F85EE6 /* NewsFeedViewController.swift */,
+				A1C2B6271E667FC500F85EE6 /* NewsFeedViewController.xib */,
+				A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */,
+				A1C2B62B1E66802A00F85EE6 /* NewsFeedTableViewCell.xib */,
+			);
+			name = NewsFeed;
+			sourceTree = "<group>";
+		};
 		6BD9BF021E71E64900EF841A /* Login Views */ = {
 			isa = PBXGroup;
 			children = (
-				BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */,
 				6BD9BF001E71E4FE00EF841A /* RegisterViewController.swift */,
 			);
 			name = "Login Views";
@@ -158,12 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */,
-				A1C2B6261E667FC500F85EE6 /* NewsFeedViewController.swift */,
-				A1C2B6271E667FC500F85EE6 /* NewsFeedViewController.xib */,
-				A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */,
-				A1C2B62B1E66802A00F85EE6 /* NewsFeedTableViewCell.xib */,
 				BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */,
 				BA44D39B1E662B7F006D99A6 /* ProfileViewController.swift */,
+				6B9D3D5A1E946448002359C2 /* NewsFeed */,
 				6BD9BF021E71E64900EF841A /* Login Views */,
 				6BD9BF031E71E65D00EF841A /* Helper Classes */,
 				BAEEDDC61E4E3A7400E4FAEE /* Assets.xcassets */,
