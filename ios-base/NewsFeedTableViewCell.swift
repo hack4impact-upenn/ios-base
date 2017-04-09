@@ -16,35 +16,36 @@ class NewsFeedTableViewCell: UITableViewCell {
     @IBOutlet var usernameLabel: UILabel?
     @IBOutlet var postContentLabel: UILabel?
     @IBOutlet var timestampLabel: UILabel?
-    var post: Post?
-    var parent: NewsFeedViewController?
+    var post: Post
+    var user: PFUser
+    var parent: NewsFeedViewController
     
-    @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
-        if let username = post?.pfObject.object(forKey: "username") as? String {
-            self.parent?.viewProfilePressed(profileUsername: username)
-        }
+    init(post: Post, user: PFUser, parent: NewsFeedViewController) {
+        self.post = post
+        self.user = user
+        self.parent = parent
+        super.init(style: .default, reuseIdentifier: "newsFeedCell")
     }
     
-    func updateInfo() {
-        
-        guard let post = self.post, let postName = post.pfObject.object(forKey: "postName") as? String,
-            let username = post.pfObject.object(forKey: "username") as? String,
-            let content = post.pfObject.object(forKey: "content") as? String,
-            let timeStamp = post.pfObject.object(forKey: "timeStamp") as? String
-            
-            else {
-                
-                postNameLabel?.text = "Post Title"
-                usernameLabel?.text = "koushan"
-                postContentLabel?.text = "Nunc sem eros, pellentesque eu libero in, lobortis fermentum velit."
-                timestampLabel?.text = "28 Feb"
-                return
-        }
-        
-        postNameLabel?.text = postName
-        usernameLabel?.text = username
-        postContentLabel?.text = content
-        timestampLabel?.text = timeStamp
+    required init?(coder aDecoder: NSCoder) {
+        // setup dummy values
+        // should never be initialized this way
+        self.post = Post(postName: "null", username: "null", content: "null", timeStamp: "null")
+        self.user = PFUser()
+        self.parent = NewsFeedViewController()
+        super.init(coder: aDecoder)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        postNameLabel?.text = post.pfObject.object(forKey: "postName") as? String
+        usernameLabel?.text = post.pfObject.object(forKey: "username") as? String
+        postContentLabel?.text = post.pfObject.object(forKey: "content") as? String
+        timestampLabel?.text = post.pfObject.object(forKey: "timeStamp") as? String
+    }
+    
+    @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
+        self.parent.viewProfile(user: self.user)
     }
     
 }

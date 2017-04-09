@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Parse
 
 class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -34,10 +35,10 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationItem.rightBarButtonItem = rightButtonItem
         
         let leftButtonItem = UIBarButtonItem.init(
-            title: "Sign Out",
+            title: "View Profile",
             style: .done,
             target: self,
-            action: #selector(NewsFeedViewController.signout)
+            action: #selector(NewsFeedViewController.viewOwnProfile)
         )
         
         self.navigationItem.leftBarButtonItem = leftButtonItem
@@ -53,21 +54,22 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "newsFeedCell") as? NewsFeedTableViewCell {
-            // create a sample news feed post
-            let post = Post(postName: "Hello!", username: "kasra", content: "Sup fam! This is my post yo", timeStamp: "4 April 2017")
-            cell.post = post
-            cell.parent = self
-            cell.updateInfo()
-            return cell
-        }
-        return NewsFeedTableViewCell(style: .default, reuseIdentifier: "newsFeedCell")
+        // create a sample news feed post
+        let post = Post(postName: "Hello!", username: "kasra", content: "Sup fam! This is my post yo", timeStamp: "4 April 2017")
+        let user = PFUser()
+        user.username = "kasra"
+        return NewsFeedTableViewCell(post: post, user: user, parent: self)
         
         
     }
     
-    func viewProfilePressed(profileUsername: String) {
-        let profileViewController = ProfileViewController()
+    func viewOwnProfile() {
+        let profileViewController = ProfileViewController(inputUser: nil)
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
+    
+    func viewProfile(user: PFUser) {
+        let profileViewController = ProfileViewController(inputUser: user)
         self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
@@ -76,16 +78,13 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // obtain number from Parse
         return 10
     }
     
     func addNewPost() {
         let newPostVC = NewPostViewController()
         self.navigationController?.pushViewController(newPostVC, animated: true)
-    }
-    
-    func signout() {
-        _ = self.navigationController?.popViewController(animated: true)
     }
     
 }

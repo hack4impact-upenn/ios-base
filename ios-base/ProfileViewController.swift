@@ -4,12 +4,36 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController {
     private let nameLabel = UILabel()
     private let emailLabel = UILabel()
     private let signOutButton = UIButton(type: UIButtonType.roundedRect)
     private let profileImageView = UIImageView()
+    var user: PFUser
+    
+    init(inputUser: PFUser?) {
+        // check if there is an input user to show
+        if let user = inputUser {
+            self.user = user
+        } // otherwise check if there is a currently logged in user
+        else if let user = PFUser.current() {
+            self.user = user
+        } // otherwise show nothing
+        else {
+            self.user = PFUser()
+            self.user.username = "No user found"
+        }
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        // create an empty user
+        self.user = PFUser()
+        self.user.username = "No user found"
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +44,7 @@ class ProfileViewController: UIViewController {
         }
         
         // Setup name
-        self.nameLabel.text = "Kyle Rosenbluth"
+        self.nameLabel.text = self.user.username
         self.nameLabel.sizeToFit()
         self.nameLabel.textColor = UIColor.darkGray
         self.nameLabel.center = self.view.center
@@ -28,7 +52,7 @@ class ProfileViewController: UIViewController {
         self.view.addSubview(nameLabel)
         
         // Setup email
-        self.emailLabel.text = "kyle.rosenbluth@gmail.com"
+        self.emailLabel.text = self.user.email
         self.emailLabel.sizeToFit()
         self.emailLabel.textColor = UIColor.darkGray
         self.emailLabel.center = centerForBelow(nameLabel)
