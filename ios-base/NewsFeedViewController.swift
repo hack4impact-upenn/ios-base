@@ -71,14 +71,14 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "newsFeedCell") as? NewsFeedTableViewCell {
-            
             let pfObject = self.posts[indexPath.row]
-            cell.post = Post(postName: pfObject["postName"] as! String,
-                             username: pfObject["username"] as! String,
-                             content: pfObject["content"] as! String,
-                             timeStamp: pfObject["timeStamp"] as! String)
+            
+            cell.postNameLabel!.text = pfObject["postName"] as? String
+            cell.postContentLabel!.text = pfObject["content"] as? String
+            cell.usernameLabel!.text = pfObject["username"] as? String
+            cell.timestampLabel!.text = pfObject["timeStamp"] as? String
+            
             cell.parent = self
-            cell.updateInfo()
             return cell
         }
         return NewsFeedTableViewCell(style: .default, reuseIdentifier: "newsFeedCell")
