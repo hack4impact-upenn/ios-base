@@ -2,9 +2,6 @@
 //  NewsFeedTableViewCell.swift
 //  ios-base
 //
-//  Created by Kasra Koushan on 2017-02-28.
-//  Copyright © 2017 Kyle Rosenbluth. All rights reserved.
-//
 
 import UIKit
 import Parse
@@ -34,5 +31,4 @@ class NewsFeedTableViewCell: UITableViewCell {
             self.parent?.viewProfile(user: user)
         }
     }
-    
 }

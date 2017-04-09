@@ -75,6 +75,7 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
                         username: pfObject["username"] as! String,
                         content: pfObject["content"] as! String,
                         timeStamp: pfObject["timeStamp"] as! String)
+        // should be the user of the actual post
         let user = PFUser.current()
         user?.username = "kasra"
         
