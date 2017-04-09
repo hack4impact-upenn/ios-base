@@ -19,18 +19,6 @@ class NewsFeedTableViewCell: UITableViewCell {
     var post: Post?
     var parent: NewsFeedViewController?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
         if let username = post?.pfObject.object(forKey: "username") as? String {
             self.parent?.viewProfilePressed(profileUsername: username)
