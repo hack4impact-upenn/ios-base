@@ -17,6 +17,7 @@ class NewsFeedTableViewCell: UITableViewCell {
     @IBOutlet var postContentLabel: UILabel?
     @IBOutlet var timestampLabel: UILabel?
     var post: Post?
+    var parent: NewsFeedViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +32,9 @@ class NewsFeedTableViewCell: UITableViewCell {
     }
     
     @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
-        print("view profile button pressed")
+        if let username = post?.pfObject.object(forKey: "username") as? String {
+            self.parent?.viewProfilePressed(profileUsername: username)
+        }
     }
     
     func updateInfo() {

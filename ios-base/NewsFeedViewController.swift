@@ -57,12 +57,18 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
             // create a sample news feed post
             let post = Post(postName: "Hello!", username: "kasra", content: "Sup fam! This is my post yo", timeStamp: "4 April 2017")
             cell.post = post
+            cell.parent = self
             cell.updateInfo()
             return cell
         }
         return NewsFeedTableViewCell(style: .default, reuseIdentifier: "newsFeedCell")
         
         
+    }
+    
+    func viewProfilePressed(profileUsername: String) {
+        let profileViewController = ProfileViewController()
+        self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
