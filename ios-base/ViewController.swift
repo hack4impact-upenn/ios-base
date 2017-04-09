@@ -38,7 +38,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         logoImageView.image = #imageLiteral(resourceName: "h4i_square_white")
         self.view.addSubview(logoImageView)
         
-        
         // Creating the username label
         userTextField.frame = CGRect(x:0, y:0, width:240, height:30)
         userTextField.center = CGPoint(x: width/2, y: height*7/12)
@@ -46,8 +45,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         userTextField.layer.cornerRadius = Spacing.CornerRadius
         userTextField.delegate = self
         userTextField.keyboardType = UIKeyboardType.default
+        userTextField.autocorrectionType = UITextAutocorrectionType.no
         userTextField.returnKeyType = UIReturnKeyType.done
-        userTextField.placeholder = "Email"
+        userTextField.placeholder = "Username"
         self.view.addSubview(userTextField)
         
         // Creating the password label

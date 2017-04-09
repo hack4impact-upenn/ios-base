@@ -11,6 +11,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     private let userTextField = CustomTextField()
     private let passwordTextField = CustomTextField()
     private let confirmPWTextField = CustomTextField()
+    private let emailTextField = CustomTextField()
     private let registerButton = UIButton(type: .system)
     
     override func didReceiveMemoryWarning() {
@@ -40,7 +41,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         userTextField.delegate = self
         userTextField.keyboardType = UIKeyboardType.default
         userTextField.returnKeyType = UIReturnKeyType.done
-        userTextField.placeholder = "Email"
+        userTextField.placeholder = "Username"
         self.view.addSubview(userTextField)
 
         // Creating the password label
@@ -66,11 +67,22 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         confirmPWTextField.returnKeyType = UIReturnKeyType.done
         confirmPWTextField.placeholder = "Confirm Password"
         self.view.addSubview(confirmPWTextField)
+        
+        // Creating the username label
+        emailTextField.frame = CGRect(x: 0, y: 0, width: 240, height: 30)
+        emailTextField.center = CGPoint(x: width/2, y: height*1/2)
+        emailTextField.backgroundColor = UIColor.white
+        emailTextField.layer.cornerRadius = Spacing.CornerRadius
+        emailTextField.delegate = self
+        emailTextField.keyboardType = UIKeyboardType.default
+        emailTextField.returnKeyType = UIReturnKeyType.done
+        emailTextField.placeholder = "Email"
+        self.view.addSubview(emailTextField)
 
         // Creating the register button
         registerButton.setTitle("Sign Up", for: .normal)
         registerButton.frame = CGRect(x: 0, y: 0, width: 120, height: 30)
-        registerButton.center = CGPoint(x: width/2, y: height*13/24)
+        registerButton.center = CGPoint(x: width/2, y: height*2/3)
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         registerButton.backgroundColor = UIColor.white
         registerButton.setTitleColor(Color.MainColor, for: .normal)
@@ -89,6 +101,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         let user = PFUser()
         user.username = self.userTextField.text
+        user.email = self.emailTextField.text
         if (self.passwordTextField.text != self.confirmPWTextField.text) {
             print("Passwords do not match...")
             return

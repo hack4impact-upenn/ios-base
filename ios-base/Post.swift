@@ -14,7 +14,6 @@ class Post {
     var pfObject: PFObject
     
     init(postName: String, username: String, content: String, timeStamp: String) {
-        
         self.pfObject = PFObject.init(className: "Post")
         self.pfObject.setObject(postName, forKey: "postName")
         self.pfObject.setObject(username, forKey: "username")

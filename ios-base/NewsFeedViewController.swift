@@ -8,14 +8,30 @@ import Parse
 
 class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     @IBOutlet var tableView: UITableView?
+    var posts = [PFObject]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.setHidesBackButton(true, animated:true);
         self.title = "News Feed"
+        
+        let query = PFQuery(className:"Post")
+        
+        query.findObjectsInBackground {
+            (objects, error) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) Posts.")
+                self.posts = objects!
+                self.tableView?.reloadData()
+            } else {
+                // Log details of the failure
+                print(error!.localizedDescription)
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -54,13 +70,21 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // create a sample news feed post
-        let post = Post(postName: "Hello!", username: "kasra", content: "Sup fam! This is my post yo", timeStamp: "4 April 2017")
-        let user = PFUser()
-        user.username = "kasra"
-        return NewsFeedTableViewCell(post: post, user: user, parent: self)
+        let pfObject = self.posts[indexPath.row]
+        let post = Post(postName: pfObject["postName"] as! String,
+                        username: pfObject["username"] as! String,
+                        content: pfObject["content"] as! String,
+                        timeStamp: pfObject["timeStamp"] as! String)
+        let user = PFUser.current()
+        user?.username = "kasra"
         
-        
+        if let cell = self.tableView?.dequeueReusableCell(withIdentifier: "newsFeedCell") as? NewsFeedTableViewCell {
+            cell.loadData(post: post, user: user, parent: self)
+            return cell
+        }
+        let cell =  NewsFeedTableViewCell(style: .default, reuseIdentifier: "newsFeedCell")
+        cell.loadData(post: post, user: user, parent: self)
+        return cell
     }
     
     func viewOwnProfile() {
@@ -78,8 +102,7 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // obtain number from Parse
-        return 10
+        return self.posts.count
     }
     
     func addNewPost() {

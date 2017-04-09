@@ -2,7 +2,9 @@
 //  NewPostViewController.swift
 //  ios-base
 //
+
 import UIKit
+import Parse
 
 class NewPostViewController: UIViewController, UITextFieldDelegate {
     
@@ -43,7 +45,7 @@ class NewPostViewController: UIViewController, UITextFieldDelegate {
         postField.placeholder = "Post here!"
         self.view.addSubview(postField)
         
-        // Creating the register button
+        // Creating the post button
         postButton.setTitle("Post", for: .normal)
         postButton.frame = CGRect(x: 0, y: 0, width: 120, height: 30)
         postButton.center = CGPoint(x: width/2, y: height*3/4)
@@ -57,12 +59,30 @@ class NewPostViewController: UIViewController, UITextFieldDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         self.view.isUserInteractionEnabled = true
-        
     }
     
     func postButtonTapped() {
         // Create a new post.
+        
+        let postName = postTitleField.text
+        let userName = PFUser.current()?.username
+        let content = postField.text
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        let timeStamp = dateFormatter.string(from: NSDate() as Date)
+        
+        let post = Post(postName: postName!, username: userName!, content: content!, timeStamp: timeStamp)
+        post.pfObject.saveInBackground {
+            (success, error) -> Void in
+            if (success) {
+                print("Yay!")
+            } else {
+                print("Boo :( :( ")
+            }
+        }
         _ = self.navigationController?.popViewController(animated: true)
+        
     }
     
     override func didReceiveMemoryWarning() {
