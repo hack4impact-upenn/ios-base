@@ -32,7 +32,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         self.view.backgroundColor = Color.MainColor
 
         // Creating the username label
-        userTextField.frame = (frame: CGRect(x: 0, y: 0, width: 240, height: 30))
+        userTextField.frame = CGRect(x: 0, y: 0, width: 240, height: 30)
         userTextField.center = CGPoint(x: width/2, y: height*1/4)
         userTextField.backgroundColor = UIColor.white
         userTextField.layer.cornerRadius = Spacing.CornerRadius
@@ -43,7 +43,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(userTextField)
 
         // Creating the password label
-        passwordTextField.frame = (frame: CGRect(x:0, y:0, width:240, height:30))
+        passwordTextField.frame = CGRect(x:0, y:0, width:240, height:30)
         passwordTextField.center = CGPoint(x: width/2, y: height*1/3)
         passwordTextField.backgroundColor = UIColor.white
         passwordTextField.layer.cornerRadius = Spacing.CornerRadius
@@ -55,7 +55,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(passwordTextField)
 
         // Creating the ConfirmPW label
-        confirmPWTextField.frame = (frame: CGRect(x:0, y:0, width:240, height:30))
+        confirmPWTextField.frame = CGRect(x:0, y:0, width:240, height:30)
         confirmPWTextField.center = CGPoint(x: width/2, y: height*5/12)
         confirmPWTextField.backgroundColor = UIColor.white
         confirmPWTextField.layer.cornerRadius = Spacing.CornerRadius
@@ -68,7 +68,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
 
         // Creating the register button
         registerButton.setTitle("Sign Up", for: .normal)
-        registerButton.frame = (frame: CGRect(x: 0, y: 0, width: 120, height: 30))
+        registerButton.frame = CGRect(x: 0, y: 0, width: 120, height: 30)
         registerButton.center = CGPoint(x: width/2, y: height*13/24)
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         registerButton.backgroundColor = UIColor.white
