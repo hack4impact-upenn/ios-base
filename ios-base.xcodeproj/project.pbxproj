@@ -126,6 +126,13 @@
 			name = NewsFeed;
 			sourceTree = "<group>";
 		};
+		6B9D3D5F1E946BE6002359C2 /* Parse Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Parse Models";
+			sourceTree = "<group>";
+		};
 		6BD9BF021E71E64900EF841A /* Login Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +184,7 @@
 				6BD9BF021E71E64900EF841A /* Login Views */,
 				6BD9BF031E71E65D00EF841A /* Helper Classes */,
 				BAEEDDC61E4E3A7400E4FAEE /* Assets.xcassets */,
+				6B9D3D5F1E946BE6002359C2 /* Parse Models */,
 				BAEEDDCB1E4E3A7400E4FAEE /* Info.plist */,
 			);
 			path = "ios-base";

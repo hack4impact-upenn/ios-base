@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Parse
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -93,10 +94,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     func loginButtonTapped() {
-        // validate user input against database
-        let newsFeedVC = NewsFeedViewController()
-        self.navigationController?.pushViewController(newsFeedVC, animated: true)
-        
+        PFUser.logInWithUsername(inBackground: userTextField.text!, password:passwordTextField.text!) {
+            (user, error) -> Void in
+            if user != nil {
+                // Login Successful.
+                print("This is a real user")
+                let newsFeedVC = NewsFeedViewController()
+                self.navigationController?.pushViewController(newsFeedVC, animated: true)
+            } else {
+                // Login Failed.
+                print(error!.localizedDescription)
+            }
+        }
     }
 
     func dismissKeyboard() {
