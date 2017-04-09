@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class NewsFeedTableViewCell: UITableViewCell {
 
@@ -15,31 +16,35 @@ class NewsFeedTableViewCell: UITableViewCell {
     @IBOutlet var usernameLabel: UILabel?
     @IBOutlet var postContentLabel: UILabel?
     @IBOutlet var timestampLabel: UILabel?
+    var post: Post?
+    var parent: NewsFeedViewController?
     
-    var postName = "Post Title"
-    var username = "koushan"
-    var postContent = "Nunc sem eros, pellentesque eu libero in, lobortis fermentum velit. Nam urna ante, dapibus vel faucibus a, sagittis laoreet ex. Ut luctus placerat enim, et ornare dui pellentesque non. Integer."
-    var timestamp = "28 Feb"
+    @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
+        if let username = post?.pfObject.object(forKey: "username") as? String {
+            self.parent?.viewProfilePressed(profileUsername: username)
+        }
+    }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func updateInfo() {
+        
+        guard let post = self.post, let postName = post.pfObject.object(forKey: "postName") as? String,
+            let username = post.pfObject.object(forKey: "username") as? String,
+            let content = post.pfObject.object(forKey: "content") as? String,
+            let timeStamp = post.pfObject.object(forKey: "timeStamp") as? String
+            
+            else {
+                
+                postNameLabel?.text = "Post Title"
+                usernameLabel?.text = "koushan"
+                postContentLabel?.text = "Nunc sem eros, pellentesque eu libero in, lobortis fermentum velit."
+                timestampLabel?.text = "28 Feb"
+                return
+        }
         
         postNameLabel?.text = postName
         usernameLabel?.text = username
-        postContentLabel?.text = postContent
-        timestampLabel?.text = timestamp
-        
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
-        print("view profile button pressed")
+        postContentLabel?.text = content
+        timestampLabel?.text = timeStamp
     }
     
 }
