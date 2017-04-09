@@ -11,10 +11,10 @@
 		4AA75E113E66A7F65558B6CC /* Pods_ios_baseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCD1FEEE82A8D9432D5061C1 /* Pods_ios_baseTests.framework */; };
 		6B273ADF1E66402C00F4378C /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B273ADE1E66402C00F4378C /* PaddedTextField.swift */; };
 		6B9A70C11E5D1DC7008FACF4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9A70C01E5D1DC7008FACF4 /* Default-568h@2x.png */; };
+		6B9D3D5C1E9466F5002359C2 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9D3D5B1E9466F5002359C2 /* NewPostViewController.swift */; };
 		6BD9BF011E71E4FE00EF841A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9BF001E71E4FE00EF841A /* RegisterViewController.swift */; };
 		8A20D0732550E12D5EFBED20 /* Pods_ios_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EFF01514C01B909928AFC9 /* Pods_ios_base.framework */; };
 		A1BEC14B1E9430C20057E086 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BEC14A1E9430C20057E086 /* Post.swift */; };
-		6B9D3D5C1E9466F5002359C2 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9D3D5B1E9466F5002359C2 /* NewPostViewController.swift */; };
 		A1C2B6281E667FC500F85EE6 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C2B6261E667FC500F85EE6 /* NewsFeedViewController.swift */; };
 		A1C2B6291E667FC500F85EE6 /* NewsFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C2B6271E667FC500F85EE6 /* NewsFeedViewController.xib */; };
 		A1C2B62C1E66802A00F85EE6 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */; };
@@ -139,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				6BD9BF001E71E4FE00EF841A /* RegisterViewController.swift */,
+				BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */,
 			);
 			name = "Login Views";
 			sourceTree = "<group>";
@@ -148,6 +149,7 @@
 			children = (
 				BA44D39D1E664CE3006D99A6 /* Constants.swift */,
 				6B273ADE1E66402C00F4378C /* PaddedTextField.swift */,
+				A1BEC14A1E9430C20057E086 /* Post.swift */,
 			);
 			name = "Helper Classes";
 			sourceTree = "<group>";
@@ -179,12 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				BAEEDDBF1E4E3A7400E4FAEE /* AppDelegate.swift */,
-				A1BEC14A1E9430C20057E086 /* Post.swift */,
-				A1C2B6261E667FC500F85EE6 /* NewsFeedViewController.swift */,
-				A1C2B6271E667FC500F85EE6 /* NewsFeedViewController.xib */,
-				A1C2B62A1E66802A00F85EE6 /* NewsFeedTableViewCell.swift */,
-				A1C2B62B1E66802A00F85EE6 /* NewsFeedTableViewCell.xib */,
-				BAEEDDC11E4E3A7400E4FAEE /* ViewController.swift */,
 				BA44D39B1E662B7F006D99A6 /* ProfileViewController.swift */,
 				6B9D3D5B1E9466F5002359C2 /* NewPostViewController.swift */,
 				6B9D3D5A1E946448002359C2 /* NewsFeed */,
