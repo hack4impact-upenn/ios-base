@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Parse
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
     
@@ -85,6 +86,26 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     func registerButtonTapped() {
         // Create a new user.
         // Validate User Inputs
+        
+        let user = PFUser()
+        user.username = self.userTextField.text
+        if (self.passwordTextField.text != self.confirmPWTextField.text) {
+            print("Passwords do not match...")
+            return
+        }
+        user.password = self.passwordTextField.text
+        user.signUpInBackground {
+            (succeeded, error) -> Void in
+            if let error = error {
+                print(error.localizedDescription)
+                // Show the errorString somewhere and let the user try again.
+            } else {
+                print("Hopefully added the user?")
+                let newsFeedVC = NewsFeedViewController()
+                self.navigationController?.pushViewController(newsFeedVC, animated: true)
+                // Hooray! Let them use the app now.
+            }
+        }
     }
 
     func dismissKeyboard() {
