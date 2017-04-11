@@ -15,11 +15,11 @@ A bolierplate ios application written in Swift.
 ### Setting Up 
 
 
-##### Update Xcode
+#### Update Xcode
 
 Make sure you are updated to Xcode 8 or above, which comes with Swift 3.0 or above. If you do not have this version of Xcode, you can install it on the App Store. If you are not running OSX Sierra, you may have to update your operating system before the App Store will allow you to update Xcode. 
 
-##### Clone the repo
+#### Clone the repo
 
 ```
 $ git clone https://github.com/hack4impact/ios-base.git
@@ -40,13 +40,13 @@ To hookup your new parse server to the Swift application, change lines 16-19 in 
 
 Once this is done, test that your Parse server is successfully running. 
 
-##### Install CocoaPods
+#### Install CocoaPods
 ```
 $ sudo gem install cocoapods
 $ pod install 
 ```
 
-#### Install Parse Dashboard 
+### Install Parse Dashboard 
 
 
 ### To do
