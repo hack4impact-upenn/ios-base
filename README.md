@@ -17,7 +17,7 @@ A bolierplate ios application written in Swift.
 
 ##### Update Xcode
 
-Make sure you are updated to Xcode 8 or above, which comes with Swift 3.0 or above. If you do not have this updated version of Xcode, you can install it on the App Store. If you are not running osX Sierra, you may have to upgrade your operating system before the App Store will allow you to upgrade Xcode. 
+Make sure you are updated to Xcode 8 or above, which comes with Swift 3.0 or above. If you do not have this version of Xcode, you can install it on the App Store. If you are not running OSX Sierra, you may have to update your operating system before the App Store will allow you to update Xcode. 
 
 ##### Clone the repo
 
@@ -32,6 +32,7 @@ Install the Heroku Command Line Interface:
 ```
 $  brew install heroku
 ```
+(If you don't have homebrew, you can get it here: https://brew.sh)
 
 Set up the Parse server using this tutorial https://medium.com/@timothy_whiting/setting-up-your-own-parse-server-568ee921333a. This should be done once at the beginning of the project by the PM or TL. Once this is done, do not commit the parse-server-example code to your repository. Also, you may use the Hack4Impact Heroku account for the Heroku deployment. You may also use the Hack4Impact Mlab account. 
 
@@ -39,12 +40,13 @@ To hookup your new parse server to the Swift application, change lines 16-19 in 
 
 Once this is done, test that your Parse server is successfully running. 
 
-
 ##### Install CocoaPods
 ```
 $ sudo gem install cocoapods
 $ pod install 
 ```
+
+#### Install Parse Dashboard 
 
 
 ### To do
