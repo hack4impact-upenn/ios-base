@@ -25,12 +25,7 @@ class NewsFeedTableViewCell: UITableViewCell {
     }
     
     @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
-//        if let user = self.user {
-//            self.parent?.viewProfile(user: user)
-//        }
-        
         let query = PFUser.query()
-        // want the posts in reverse order
         query?.whereKey("username", equalTo: self.username ?? "Unknown User")
         query?.getFirstObjectInBackground {
             (object, error) -> Void in
