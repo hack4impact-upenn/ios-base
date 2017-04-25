@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     private let passwordTextField = CustomTextField()
     private let loginButton = UIButton(type: .system)
     private let registerButton = UIButton(type: .system)
+    private let forgotPassButton = UIButton(type: .system)
     private let logoImageView = UIImageView()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +73,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         loginButton.layer.cornerRadius = Spacing.CornerRadius
         self.view.addSubview(loginButton)
         
+        // Creating the forgot password button
+        forgotPassButton.setTitle("Forgot Password", for: .normal)
+        forgotPassButton.frame = CGRect(x: 0, y: 0, width: 120, height: 30)
+        forgotPassButton.center = CGPoint(x: width/2, y: height*3/4.0 + 50)
+        forgotPassButton.addTarget(self, action: #selector(forgotPassButtonTapped), for: .touchUpInside)
+        forgotPassButton.backgroundColor = UIColor.white
+        forgotPassButton.setTitleColor(Color.MainColor, for: .normal)
+        forgotPassButton.layer.cornerRadius = Spacing.CornerRadius
+        self.view.addSubview(forgotPassButton)
+        
+        
         // Creating the register button
         registerButton.setTitle("Sign Up", for: .normal)
         registerButton.frame = CGRect(x: 0, y: 0, width: 240, height: 30)
@@ -82,10 +94,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         registerButton.layer.cornerRadius = Spacing.CornerRadius
         self.view.addSubview(registerButton)
         
+        
+        
         // Creating a keyboard dismiss
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         self.view.isUserInteractionEnabled = true
+    }
+    
+    func forgotPassButtonTapped() {
+        self.present(ForgotViewController(), animated: true) { 
+            
+        }
     }
 
     func registerButtonTapped() {
