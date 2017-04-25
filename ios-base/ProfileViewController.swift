@@ -15,15 +15,17 @@ class ProfileViewController: UIViewController {
     
     init(inputUser: PFUser?) {
         // check if there is an input user to show
-        if let user = inputUser {
-            self.user = user
-        } // otherwise check if there is a currently logged in user
-        else if let user = PFUser.current() {
-            self.user = user
-        } // otherwise show nothing
-        else {
-            self.user = PFUser()
-            self.user.username = "No user found"
+        if inputUser != nil {
+            print("got here")
+            self.user = inputUser!
+        } else {
+//        } // otherwise check if there is a currently logged in user
+//        else if let user = PFUser.current() {
+//            self.user = user
+//        } // otherwise show nothing
+            // otehrwise set to current user;
+            print("there is a current user")
+            self.user = PFUser.current()!
         }
         super.init(nibName: nil, bundle: nil)
     }
@@ -62,6 +64,7 @@ class ProfileViewController: UIViewController {
         self.signOutButton.setTitle("Sign Out", for: .normal)
         self.signOutButton.sizeToFit()
         self.signOutButton.center = centerForBelow(emailLabel)
+        self.signOutButton.addTarget(self, action: #selector(signOutButtonTapped), for: .touchUpInside)
         self.view.addSubview(signOutButton)
         
         // Setup profile picture
@@ -84,5 +87,14 @@ class ProfileViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func signOutButtonTapped() {
+        // Logging the user out.
+        PFUser.logOut()
+        
+        // Going back to the root view controller
+        self.navigationController?.popToRootViewController(animated: true)
+        
     }
 }

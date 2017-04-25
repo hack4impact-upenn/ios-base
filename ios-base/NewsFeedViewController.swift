@@ -48,7 +48,6 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
             target: self,
             action: #selector(NewsFeedViewController.addNewPost)
         )
-        
         self.navigationItem.rightBarButtonItem = rightButtonItem
         
         let leftButtonItem = UIBarButtonItem.init(
@@ -57,7 +56,6 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
             target: self,
             action: #selector(NewsFeedViewController.viewOwnProfile)
         )
-        
         self.navigationItem.leftBarButtonItem = leftButtonItem
     }
     
@@ -78,7 +76,6 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
                         timeStamp: pfObject["timeStamp"] as! String)
         // should be the user of the actual post
         let user = PFUser.current()
-        user?.username = "kasra"
         
         if let cell = self.tableView?.dequeueReusableCell(withIdentifier: "newsFeedCell") as? NewsFeedTableViewCell {
             cell.loadData(post: post, user: user, parent: self)

@@ -17,6 +17,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        
+        // User is already logged in
+        if (PFUser.current() != nil) {
+            // Open up the news feed
+            let newsFeedVC = NewsFeedViewController()
+            self.navigationController?.pushViewController(newsFeedVC, animated: false)
+        }
     }
     
     override func didReceiveMemoryWarning() {
