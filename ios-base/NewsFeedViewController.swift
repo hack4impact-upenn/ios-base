@@ -74,15 +74,14 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
                         username: pfObject["username"] as! String,
                         content: pfObject["content"] as! String,
                         timeStamp: pfObject["timeStamp"] as! String)
-        // should be the user of the actual post
-        let user = PFUser.current()
         
         if let cell = self.tableView?.dequeueReusableCell(withIdentifier: "newsFeedCell") as? NewsFeedTableViewCell {
-            cell.loadData(post: post, user: user, parent: self)
+            cell.loadData(post: post, parent: self)
             return cell
         }
         let cell =  NewsFeedTableViewCell(style: .default, reuseIdentifier: "newsFeedCell")
-        cell.loadData(post: post, user: user, parent: self)
+        cell.loadData(post: post, parent: self)
+        
         return cell
     }
     
