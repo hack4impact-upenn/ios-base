@@ -4,7 +4,6 @@ A bolierplate ios application written in Swift.
 
 ### What's Included?
 -  Account management
--  Simple admin controls
 -  Post creation 
 -  Commenting
 -  News feed
