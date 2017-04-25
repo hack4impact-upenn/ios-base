@@ -18,14 +18,15 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         self.title = "News Feed"
         
         let query = PFQuery(className:"Post")
-        
+        // want the posts in reverse order
+        query.order(byDescending: "createdAt")
         query.findObjectsInBackground {
             (objects, error) -> Void in
-            
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(objects!.count) Posts.")
+                // sets the objects to a global variable
                 self.posts = objects!
+                // refreshes the posts in the tableview
                 self.tableView?.reloadData()
             } else {
                 // Log details of the failure
