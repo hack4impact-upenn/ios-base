@@ -52,10 +52,10 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationItem.rightBarButtonItem = rightButtonItem
         
         let leftButtonItem = UIBarButtonItem.init(
-            title: "Sign Out",
+            title: "View Profile",
             style: .done,
             target: self,
-            action: #selector(NewsFeedViewController.signout)
+            action: #selector(NewsFeedViewController.viewOwnProfile)
         )
         
         self.navigationItem.leftBarButtonItem = leftButtonItem
@@ -71,22 +71,31 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "newsFeedCell") as? NewsFeedTableViewCell {
-            let pfObject = self.posts[indexPath.row]
-            
-            cell.postNameLabel!.text = pfObject["postName"] as? String
-            cell.postContentLabel!.text = pfObject["content"] as? String
-            cell.usernameLabel!.text = pfObject["username"] as? String
-            cell.timestampLabel!.text = pfObject["timeStamp"] as? String
-            
-            cell.parent = self
+        let pfObject = self.posts[indexPath.row]
+        let post = Post(postName: pfObject["postName"] as! String,
+                        username: pfObject["username"] as! String,
+                        content: pfObject["content"] as! String,
+                        timeStamp: pfObject["timeStamp"] as! String)
+        // should be the user of the actual post
+        let user = PFUser.current()
+        user?.username = "kasra"
+        
+        if let cell = self.tableView?.dequeueReusableCell(withIdentifier: "newsFeedCell") as? NewsFeedTableViewCell {
+            cell.loadData(post: post, user: user, parent: self)
             return cell
         }
-        return NewsFeedTableViewCell(style: .default, reuseIdentifier: "newsFeedCell")
+        let cell =  NewsFeedTableViewCell(style: .default, reuseIdentifier: "newsFeedCell")
+        cell.loadData(post: post, user: user, parent: self)
+        return cell
     }
     
-    func viewProfilePressed(profileUsername: String) {
-        let profileViewController = ProfileViewController()
+    func viewOwnProfile() {
+        let profileViewController = ProfileViewController(inputUser: nil)
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
+    
+    func viewProfile(user: PFUser) {
+        let profileViewController = ProfileViewController(inputUser: user)
         self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
@@ -101,10 +110,6 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func addNewPost() {
         let newPostVC = NewPostViewController()
         self.navigationController?.pushViewController(newPostVC, animated: true)
-    }
-    
-    func signout() {
-        _ = self.navigationController?.popViewController(animated: true)
     }
     
 }
