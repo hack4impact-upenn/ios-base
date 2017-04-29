@@ -10,6 +10,7 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet var tableView: UITableView?
     var posts = [PFObject]()
+    private let drawingOptions: NSStringDrawingOptions = [.truncatesLastVisibleLine, .usesLineFragmentOrigin, .usesFontLeading]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -65,7 +66,9 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        let pfObject = self.posts[indexPath.row]
+        let attString = NSMutableAttributedString(string: pfObject["content"] as! String, attributes: [:])
+        return 80 + attString.boundingRect(with: CGSize(width: self.view.frame.size.width, height: 120), options: drawingOptions, context: nil).size.height
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,7 +84,6 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         }
         let cell =  NewsFeedTableViewCell(style: .default, reuseIdentifier: "newsFeedCell")
         cell.loadData(post: post, parent: self)
-        
         return cell
     }
     
