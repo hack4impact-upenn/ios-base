@@ -76,7 +76,6 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
                         timeStamp: pfObject["timeStamp"] as! String)
         
         if let cell = self.tableView?.dequeueReusableCell(withIdentifier: "newsFeedCell") as? NewsFeedTableViewCell {
-            
             cell.loadData(post: post, parent: self)
             return cell
         }

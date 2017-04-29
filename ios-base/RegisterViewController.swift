@@ -107,16 +107,35 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             return
         }
         user.password = self.passwordTextField.text
-        user.signUpInBackground {
-            (succeeded, error) -> Void in
-            if let error = error {
-                print(error.localizedDescription)
-                // Show the errorString somewhere and let the user try again.
-            } else {
-                print("Hopefully added the user?")
-                let newsFeedVC = NewsFeedViewController()
-                self.navigationController?.pushViewController(newsFeedVC, animated: true)
-                // Hooray! Let them use the app now.
+        
+        if let url = URL(string: Defaults.ProfilePic), let d = try? Data(contentsOf: url) {
+            let img = UIImage(data: d)
+            
+            let imageData = UIImageJPEGRepresentation(img!, 0.5)
+            let imageFile = PFFile(name:"image.png", data:imageData!)
+            
+            let profPic = PFObject(className:"ProfilePictures")
+            profPic["imageName"] = "Prof Pic"
+            profPic["imageFile"] = imageFile
+            profPic.saveInBackground {
+                (succeeded, error) -> Void in
+                if let error = error {
+                    print(error.localizedDescription)
+                    // Show the errorString somewhere and let the user try again.
+                } else {
+                    user["profPic"] = profPic
+                    user.signUpInBackground {
+                        (succeeded, error) -> Void in
+                        if let error = error {
+                            print(error.localizedDescription)
+                            // Show the errorString somewhere and let the user try again.
+                        } else {
+                            let newsFeedVC = NewsFeedViewController()
+                            self.navigationController?.pushViewController(newsFeedVC, animated: true)
+                            // Hooray! Let them use the app now.
+                        }
+                    }
+                }
             }
         }
     }

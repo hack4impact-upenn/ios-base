@@ -65,7 +65,6 @@ class NewPostViewController: UIViewController, UITextFieldDelegate {
         // Create a new post.
         
         let postName = postTitleField.text
-        let userName = PFUser.current()?.username
         let user = PFUser.current()
         let content = postField.text
         

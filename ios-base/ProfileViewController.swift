@@ -6,12 +6,14 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private let nameLabel = UILabel()
     private let emailLabel = UILabel()
     private let signOutButton = UIButton(type: UIButtonType.roundedRect)
-    private let profileImageButton = UIButton(type: UIButtonType.system)
+    private let profileImageButton = UIButton(type: UIButtonType.custom)
     var user: PFUser
+    
+    let imagePicker = UIImagePickerController()
     
     init(inputUser: PFUser?) {
         if inputUser != nil {
@@ -77,41 +79,34 @@ class ProfileViewController: UIViewController {
         profileImageButton.frame.origin.y = 100
         profileImageButton.layer.cornerRadius = 12
         profileImageButton.layer.masksToBounds = true
+        profileImageButton.addTarget(self, action: #selector(imageTapped), for: .touchUpInside)
         
+        // This should be done in background.
+        // Setting the button image
         
-        // Setup the image in the profile picture
-        let default_pic = "https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/15822924_10210243463137294_4969821814341284468_n.jpg?oh=720a875e07bab5bd4227c91e57728193&oe=5927BD68"
+        let userImage = self.user["profPic"] as! PFObject
         
-//        if {
-//            
-//        } else if let url = URL(string: default_pic), let d = try? Data(contentsOf: url) {
-//            let img = UIImage(data: d)
-//            profileImageButton.setImage(img, for: UIControlState.normal)
-//        }
-//        
-//        profileImageButton.setImage(<#T##image: UIImage?##UIImage?#>, for: <#T##UIControlState#>)
+        do {
+            try userImage.fetchIfNeeded()
+        } catch let error as NSError {
+            print("Fetch failed: \(error.localizedDescription)")
+        }
+        
+        let userImageFile = userImage["imageFile"] as! PFFile
+        userImageFile.getDataInBackground {
+            (imageData, error) -> Void in
+            if error == nil {
+                if let imageData = imageData {
+                    let image = UIImage(data:imageData)
+                    self.profileImageButton.setImage(image, for: UIControlState.normal)
+                }
+            }
+        }
         
         self.view.addSubview(profileImageButton)
         
-        
-        
-        
-        
-        // Setup profile picture
-//
-        
-        
-        
-//        if let url = URL(string: prof_pic), let d = try? Data(contentsOf: url) {
-//            let img = UIImage(data: d)
-//            self.profileImageView.image = img
-//            self.profileImageView.frame.size = CGSize(width: 150, height: 150)
-//            self.profileImageView.center = self.view.center
-//            self.profileImageView.frame.origin.y = 100
-//            self.profileImageView.layer.cornerRadius = 12
-//            self.profileImageView.layer.masksToBounds = true
-//            self.view.addSubview(profileImageView)
-//        }
+        // Allows for the ability to change profile picture
+        imagePicker.delegate = self
 
     }
 
@@ -126,6 +121,45 @@ class ProfileViewController: UIViewController {
         
         // Going back to the root view controller
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func imageTapped() {
+        self.imagePicker.allowsEditing = false
+        self.imagePicker.sourceType = .photoLibrary
         
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    // MARK: - UIImagePickerControllerDelegate Methods
+    
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.profileImageButton.setImage(pickedImage, for: UIControlState.normal)
+            
+            let imageData = UIImageJPEGRepresentation(pickedImage, 0.5)
+            let imageFile = PFFile(name:"image.png", data:imageData!)
+            
+            let profPic = PFObject(className:"ProfilePictures")
+            profPic["imageName"] = "Prof Pic"
+            profPic["imageFile"] = imageFile
+            profPic.saveInBackground {
+                (succeeded, error) -> Void in
+                if let error = error {
+                    print(error.localizedDescription)
+                    // Show the errorString somewhere and let the user try again.
+                } else {
+                    print("saved?")
+                    self.user["profPic"] = profPic
+                    self.user.saveInBackground()
+                    
+                }
+            }
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }
