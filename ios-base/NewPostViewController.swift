@@ -10,51 +10,44 @@ import SVProgressHUD
 class NewPostViewController: UIViewController, UITextFieldDelegate {
     
     private let postTitleField = CustomTextField()
-    private let postField = CustomTextField()
-    private let postButton = UIButton(type: .system)
+    private let postField = UITextView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.view.backgroundColor = Color.MainColor
         
         let width = self.view.frame.size.width
         let height = self.view.frame.size.height
         
         // Creating the Post Title
-        postTitleField.frame = CGRect(x:0, y:0, width:240, height:30)
-        postTitleField.center = CGPoint(x: width/2, y: height*1/3)
+        postTitleField.frame = CGRect(x:0, y:0, width: width - 40, height:30)
+        postTitleField.center = CGPoint(x: width/2, y: height*2/11)
         postTitleField.backgroundColor = UIColor.white
         postTitleField.layer.cornerRadius = Spacing.CornerRadius
-        postTitleField.layer.borderColor = UIColor.black.cgColor
-        postTitleField.layer.borderWidth = 1.0
         postTitleField.delegate = self
         postTitleField.keyboardType = UIKeyboardType.default
         postTitleField.returnKeyType = UIReturnKeyType.done
         postTitleField.placeholder = "Post Title"
         self.view.addSubview(postTitleField)
         
-        // Creating the password label
-        postField.frame = CGRect(x:0, y:0, width:240, height:120)
-        postField.center = CGPoint(x: width/2, y: height*1/2)
+        // Creating the post label
+        postField.frame = CGRect(x:0, y:0, width: width - 40, height:170)
+        postField.center = CGPoint(x: width/2, y: height*2/5)
         postField.backgroundColor = UIColor.white
         postField.layer.cornerRadius = Spacing.CornerRadius
-        postField.delegate = self
-        postField.layer.borderColor = UIColor.black.cgColor
-        postField.layer.borderWidth = 1.0
         postField.keyboardType = UIKeyboardType.default
         postField.returnKeyType = UIReturnKeyType.done
-        postField.placeholder = "Post here!"
+        postField.text = "Today I..."
+        postField.font = .systemFont(ofSize:16)
         self.view.addSubview(postField)
         
-        // Creating the post button
-        postButton.setTitle("Post", for: .normal)
-        postButton.frame = CGRect(x: 0, y: 0, width: 120, height: 30)
-        postButton.center = CGPoint(x: width/2, y: height*3/4)
-        postButton.addTarget(self, action: #selector(postButtonTapped), for: .touchUpInside)
-        postButton.backgroundColor = UIColor.white
-        postButton.setTitleColor(Color.MainColor, for: .normal)
-        postButton.layer.cornerRadius = Spacing.CornerRadius
-        self.view.addSubview(postButton)
+        let rightButtonItem = UIBarButtonItem.init(
+            title: "Post",
+            style: .done,
+            target: self,
+            action: #selector(postButtonTapped)
+        )
+        self.navigationItem.rightBarButtonItem = rightButtonItem
         
         // Creating a keyboard dismiss
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
