@@ -5,6 +5,7 @@
 
 import UIKit
 import Parse
+import SVProgressHUD
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -110,7 +111,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 self.navigationController?.pushViewController(newsFeedVC, animated: true)
             } else {
                 // Login Failed.
-                print(error!.localizedDescription)
+                SVProgressHUD.showError(withStatus: error!.localizedDescription)
             }
         }
     }

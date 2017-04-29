@@ -5,6 +5,7 @@
 
 import UIKit
 import Parse
+import SVProgressHUD
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
     
@@ -103,7 +104,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         user.username = self.userTextField.text
         user.email = self.emailTextField.text
         if (self.passwordTextField.text != self.confirmPWTextField.text) {
-            print("Passwords do not match...")
+            SVProgressHUD.showError(withStatus: "Passwords do not match.")
             return
         }
         user.password = self.passwordTextField.text
@@ -128,7 +129,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     user.signUpInBackground {
                         (succeeded, error) -> Void in
                         if let error = error {
-                            print(error.localizedDescription)
+                            SVProgressHUD.showError(withStatus: error.localizedDescription)
                             // Show the errorString somewhere and let the user try again.
                         } else {
                             let newsFeedVC = NewsFeedViewController()

@@ -12,6 +12,8 @@ class NewsFeedTableViewCell: UITableViewCell {
     @IBOutlet var usernameButton: UIButton?
     @IBOutlet var postContentLabel: UILabel?
     @IBOutlet var timestampLabel: UILabel?
+    @IBOutlet var profPicButton: UIButton?
+    
     var parent: NewsFeedViewController?
     var user: PFUser?
     
@@ -31,9 +33,32 @@ class NewsFeedTableViewCell: UITableViewCell {
         timestampLabel?.text = post.pfObject["timeStamp"] as? String
         
         self.selectionStyle = UITableViewCellSelectionStyle.none
+        let userImage = self.user!["profPic"] as! PFObject
+        
+        do {
+            try userImage.fetchIfNeeded()
+        } catch let error as NSError {
+            print("Fetch failed: \(error.localizedDescription)")
+        }
+        
+        let userImageFile = userImage["imageFile"] as! PFFile
+        userImageFile.getDataInBackground {
+            (imageData, error) -> Void in
+            if error == nil {
+                if let imageData = imageData {
+                    let image = UIImage(data:imageData)
+                    self.profPicButton!.setImage(image, for: UIControlState.normal)
+                }
+            }
+        }
     }
     
     @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
         self.parent?.viewProfile(user: self.user!)
     }
+    
+    @IBAction func profPicButtonPressed(_ sender: UIButton) {
+        self.parent?.viewProfile(user: self.user!)
+    }
+    
 }

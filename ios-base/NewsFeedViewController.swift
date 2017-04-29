@@ -5,6 +5,7 @@
 
 import UIKit
 import Parse
+import SVProgressHUD
 
 class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,6 +18,8 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationItem.setHidesBackButton(true, animated:true);
         self.title = "News Feed"
         
+        SVProgressHUD.show()
+        
         let query = PFQuery(className:"Post")
         // want the posts in reverse order
         query.order(byDescending: "createdAt")
@@ -28,6 +31,9 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 self.posts = objects!
                 // refreshes the posts in the tableview
                 self.tableView?.reloadData()
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                }
             } else {
                 // Log details of the failure
                 print(error!.localizedDescription)

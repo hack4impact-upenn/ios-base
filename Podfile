@@ -7,6 +7,7 @@ target 'ios-base' do
 
   # Pods for ios-base
   pod 'Parse'
+  pod 'SVProgressHUD'
 
   target 'ios-baseTests' do
     inherit! :search_paths

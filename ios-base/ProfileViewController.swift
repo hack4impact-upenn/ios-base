@@ -148,10 +148,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     print(error.localizedDescription)
                     // Show the errorString somewhere and let the user try again.
                 } else {
-                    print("saved?")
                     self.user["profPic"] = profPic
                     self.user.saveInBackground()
-                    
                 }
             }
         }
