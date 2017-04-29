@@ -121,8 +121,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             profPic.saveInBackground {
                 (succeeded, error) -> Void in
                 if let error = error {
-                    print(error.localizedDescription)
-                    // Show the errorString somewhere and let the user try again.
+                    SVProgressHUD.showError(withStatus: error.localizedDescription)
                 } else {
                     user["profPic"] = profPic
                     user["isAdmin"] = false

@@ -36,7 +36,7 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             } else {
                 // Log details of the failure
-                print(error!.localizedDescription)
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
             }
         }
     }
@@ -80,7 +80,6 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func editingMode() {
         if let isAdmin = PFUser.current()?["isAdmin"] as? Bool {
             self.tableView?.setEditing(isAdmin, animated: true)
-            print("editing \(isAdmin)")
         }
     }
     

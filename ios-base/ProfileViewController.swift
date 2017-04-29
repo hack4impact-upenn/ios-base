@@ -48,7 +48,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         do {
             try self.user.fetchIfNeeded()
         } catch let error as NSError {
-            print("Fetch failed: \(error.localizedDescription)")
+            SVProgressHUD.showError(withStatus: error.localizedDescription)
         }
         
         // Setup name
@@ -89,7 +89,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         do {
             try userImage.fetchIfNeeded()
         } catch let error as NSError {
-            print("Fetch failed: \(error.localizedDescription)")
+            SVProgressHUD.showError(withStatus: error.localizedDescription)
         }
         
         let userImageFile = userImage["imageFile"] as! PFFile
@@ -145,8 +145,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             profPic.saveInBackground {
                 (succeeded, error) -> Void in
                 if let error = error {
-                    print(error.localizedDescription)
-                    // Show the errorString somewhere and let the user try again.
+                    SVProgressHUD.showError(withStatus: error.localizedDescription)
                 } else {
                     self.user["profPic"] = profPic
                     self.user.saveInBackground()
