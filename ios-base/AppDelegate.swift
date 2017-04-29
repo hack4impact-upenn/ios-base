@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Initializes the Parse Server
         Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
             configuration.server = "https://protected-thicket-62303.herokuapp.com/parse"
             configuration.applicationId = "hack4impact-ios-base"
@@ -21,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         let viewController : ViewController = ViewController()
+        
+        // Navigation Controllers give the application view transitions for free.
+        // Here we set the root of our UI to the login page.
         let navigationController = UINavigationController(rootViewController: viewController)
         
         self.window?.rootViewController = navigationController
