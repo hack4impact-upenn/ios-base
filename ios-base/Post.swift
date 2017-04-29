@@ -2,9 +2,6 @@
 //  Post.swift
 //  ios-base
 //
-//  Created by Kasra Koushan on 2017-04-04.
-//  Copyright © 2017 Kyle Rosenbluth. All rights reserved.
-//
 
 import Foundation
 import Parse
