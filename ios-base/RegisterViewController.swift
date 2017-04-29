@@ -124,6 +124,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     // Show the errorString somewhere and let the user try again.
                 } else {
                     user["profPic"] = profPic
+                    user["isAdmin"] = false
                     user.signUpInBackground {
                         (succeeded, error) -> Void in
                         if let error = error {

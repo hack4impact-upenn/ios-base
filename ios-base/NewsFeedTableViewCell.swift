@@ -29,6 +29,8 @@ class NewsFeedTableViewCell: UITableViewCell {
         usernameButton?.setTitle(self.user!.username, for: UIControlState.normal)
         postContentLabel?.text = post.pfObject["content"] as? String
         timestampLabel?.text = post.pfObject["timeStamp"] as? String
+        
+        self.selectionStyle = UITableViewCellSelectionStyle.none
     }
     
     @IBAction func viewProfileButtonPressed(_ sender: UIButton) {

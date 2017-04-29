@@ -57,6 +57,39 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
             action: #selector(NewsFeedViewController.viewOwnProfile)
         )
         self.navigationItem.leftBarButtonItem = leftButtonItem
+        
+        // add gesture recognizer for deletion
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(endEditingMode))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        // add gesture recognizer for ending deletion
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(editingMode))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        self.view.isUserInteractionEnabled = true
+    }
+    
+    func editingMode() {
+        if let isAdmin = PFUser.current()?["isAdmin"] as? Bool {
+            self.tableView?.setEditing(isAdmin, animated: true)
+            print("editing \(isAdmin)")
+        }
+    }
+    
+    func endEditingMode() {
+        self.tableView?.setEditing(false, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            do {
+                try self.posts[indexPath.row].delete()
+            } catch {
+                // print error statement
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
