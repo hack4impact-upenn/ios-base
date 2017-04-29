@@ -71,7 +71,7 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let pfObject = self.posts[indexPath.row]
         let post = Post(postName: pfObject["postName"] as! String,
-                        username: pfObject["username"] as! String,
+                        user: pfObject["user"] as! PFUser,
                         content: pfObject["content"] as! String,
                         timeStamp: pfObject["timeStamp"] as! String)
         

@@ -66,13 +66,14 @@ class NewPostViewController: UIViewController, UITextFieldDelegate {
         
         let postName = postTitleField.text
         let userName = PFUser.current()?.username
+        let user = PFUser.current()
         let content = postField.text
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
         let timeStamp = dateFormatter.string(from: NSDate() as Date)
         
-        let post = Post(postName: postName!, username: userName!, content: content!, timeStamp: timeStamp)
+        let post = Post(postName: postName!, user: user!, content: content!, timeStamp: timeStamp)
         post.pfObject.saveInBackground {
             (success, error) -> Void in
             if (success) {
