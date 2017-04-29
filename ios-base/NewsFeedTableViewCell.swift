@@ -24,7 +24,7 @@ class NewsFeedTableViewCell: UITableViewCell {
         do {
             try self.user!.fetchIfNeeded()
         } catch let error as NSError {
-            print("Fetch failed: \(error.localizedDescription)")
+            SVProgressHUD.showError(withStatus: error.localizedDescription)
         }
         
         postNameLabel?.text = post.pfObject["postName"] as? String
@@ -38,7 +38,7 @@ class NewsFeedTableViewCell: UITableViewCell {
         do {
             try userImage.fetchIfNeeded()
         } catch let error as NSError {
-            print("Fetch failed: \(error.localizedDescription)")
+            SVProgressHUD.showError(withStatus: error.localizedDescription)
         }
         
         let userImageFile = userImage["imageFile"] as! PFFile

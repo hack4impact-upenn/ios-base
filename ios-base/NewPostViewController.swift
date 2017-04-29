@@ -75,10 +75,8 @@ class NewPostViewController: UIViewController, UITextFieldDelegate {
         let post = Post(postName: postName!, user: user!, content: content!, timeStamp: timeStamp)
         post.pfObject.saveInBackground {
             (success, error) -> Void in
-            if (success) {
-                print("Yay!")
-            } else {
-                print("Boo :( :( ")
+            if (error) {
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
             }
         }
         _ = self.navigationController?.popViewController(animated: true)

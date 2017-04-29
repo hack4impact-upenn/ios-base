@@ -106,7 +106,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             (user, error) -> Void in
             if user != nil {
                 // Login Successful.
-                print("This is a real user")
                 let newsFeedVC = NewsFeedViewController()
                 self.navigationController?.pushViewController(newsFeedVC, animated: true)
             } else {
