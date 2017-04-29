@@ -80,7 +80,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profileImageButton.frame.origin.y = 100
         profileImageButton.layer.cornerRadius = 12
         profileImageButton.layer.masksToBounds = true
-        profileImageButton.addTarget(self, action: #selector(imageTapped), for: .touchUpInside)
+        if(self.user.username == PFUser.current()?.username) {
+            print("the current user!")
+            profileImageButton.addTarget(self, action: #selector(imageTapped), for: .touchUpInside)
+        } else {
+            print("not the current user!")
+        }
         
         // This should be done in background.
         // Setting the button image
