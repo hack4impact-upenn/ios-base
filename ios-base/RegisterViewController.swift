@@ -130,11 +130,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         (succeeded, error) -> Void in
                         if let error = error {
                             SVProgressHUD.showError(withStatus: error.localizedDescription)
-                            // Show the errorString somewhere and let the user try again.
                         } else {
                             let newsFeedVC = NewsFeedViewController()
                             self.navigationController?.pushViewController(newsFeedVC, animated: true)
-                            // Hooray! Let them use the app now.
                         }
                     }
                 }

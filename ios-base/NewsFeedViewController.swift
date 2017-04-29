@@ -93,7 +93,7 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
             do {
                 try self.posts[indexPath.row].delete()
             } catch {
-                // print error statement
+                SVProgressHUD.showError(withStatus: "Post could not be deleted. Please try again")
             }
         }
     }
