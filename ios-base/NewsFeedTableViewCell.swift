@@ -5,6 +5,7 @@
 
 import UIKit
 import Parse
+import SVProgressHUD
 
 class NewsFeedTableViewCell: UITableViewCell {
 

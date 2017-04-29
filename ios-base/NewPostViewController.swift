@@ -5,6 +5,7 @@
 
 import UIKit
 import Parse
+import SVProgressHUD
 
 class NewPostViewController: UIViewController, UITextFieldDelegate {
     
@@ -75,8 +76,8 @@ class NewPostViewController: UIViewController, UITextFieldDelegate {
         let post = Post(postName: postName!, user: user!, content: content!, timeStamp: timeStamp)
         post.pfObject.saveInBackground {
             (success, error) -> Void in
-            if (error) {
-                SVProgressHUD.showError(withStatus: error.localizedDescription)
+            if ((error) != nil) {
+                SVProgressHUD.showError(withStatus: error!.localizedDescription)
             }
         }
         _ = self.navigationController?.popViewController(animated: true)

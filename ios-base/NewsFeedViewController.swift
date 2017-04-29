@@ -36,7 +36,7 @@ class NewsFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             } else {
                 // Log details of the failure
-                SVProgressHUD.showError(withStatus: error.localizedDescription)
+                SVProgressHUD.showError(withStatus: error!.localizedDescription)
             }
         }
     }
